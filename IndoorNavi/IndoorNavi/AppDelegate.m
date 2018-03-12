@@ -24,9 +24,12 @@
     
     ViewController *controller = [[ViewController alloc] init];
     self.window.rootViewController = controller;
-    self.window.backgroundColor = [UIColor yellowColor];
-    [self.window makeKeyAndVisible];
+    //set background image
+    UIImage *backGroundImage = [UIImage imageNamed:@"background.jpg"];
+    self.window.contentMode = UIViewContentModeScaleAspectFill;
+    self.window.layer.contents = (__bridge id _Nullable)(backGroundImage.CGImage);
     
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

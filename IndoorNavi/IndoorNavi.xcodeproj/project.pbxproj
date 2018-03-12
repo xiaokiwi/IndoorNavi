@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1024D952106C88B6672BB355 /* libPods-IndoorNavi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78023BBAF442277B7DBD7B95 /* libPods-IndoorNavi.a */; };
+		5746B2DA20564F7900C31C20 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5746B2D920564F7900C31C20 /* background.jpg */; };
+		5746B2DC2056533700C31C20 /* me.png in Resources */ = {isa = PBXBuildFile; fileRef = 5746B2DB2056533600C31C20 /* me.png */; };
 		57A15CE22055DB1E000E3E2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A15CE12055DB1E000E3E2E /* AppDelegate.m */; };
 		57A15CE52055DB1E000E3E2E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A15CE42055DB1E000E3E2E /* ViewController.m */; };
 		57A15CE82055DB1E000E3E2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57A15CE62055DB1E000E3E2E /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		32D35CA8172142FA113DBC07 /* Pods-IndoorNavi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IndoorNavi.release.xcconfig"; path = "Pods/Target Support Files/Pods-IndoorNavi/Pods-IndoorNavi.release.xcconfig"; sourceTree = "<group>"; };
+		5746B2D920564F7900C31C20 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		5746B2DB2056533600C31C20 /* me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = me.png; sourceTree = "<group>"; };
 		57A15CDD2055DB1E000E3E2E /* IndoorNavi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IndoorNavi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A15CE02055DB1E000E3E2E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		57A15CE12055DB1E000E3E2E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 		57A15CDF2055DB1E000E3E2E /* IndoorNavi */ = {
 			isa = PBXGroup;
 			children = (
+				5746B2DB2056533600C31C20 /* me.png */,
+				5746B2D920564F7900C31C20 /* background.jpg */,
 				57A15D1A20561E92000E3E2E /* TriangulationAlgorithm.h */,
 				57A15D1B20561E92000E3E2E /* TriangulationAlgorithm.m */,
 				57A15CE02055DB1E000E3E2E /* AppDelegate.h */,
@@ -273,7 +279,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5746B2DC2056533700C31C20 /* me.png in Resources */,
 				57A15CF02055DB1E000E3E2E /* LaunchScreen.storyboard in Resources */,
+				5746B2DA20564F7900C31C20 /* background.jpg in Resources */,
 				57A15CED2055DB1E000E3E2E /* Assets.xcassets in Resources */,
 				57A15CE82055DB1E000E3E2E /* Main.storyboard in Resources */,
 			);

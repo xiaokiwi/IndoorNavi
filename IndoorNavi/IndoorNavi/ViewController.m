@@ -32,8 +32,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(150, 150, 20, 20)];
-    view1.backgroundColor = [UIColor blueColor];
+    
+    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(150, 150, 10, 10)];
+    //view1.backgroundColor = [UIColor blueColor];
+    UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me.png"]];
+    [view1 addSubview:imageView];
     view1.tag = 1;
     [self.view addSubview:view1];
     
@@ -59,7 +62,7 @@
 //Bluetooth Delegate setting
 -(void)babyDelegate{
     
-    //__weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
 
     //Store previous two rssi value
     static int prev_rssi1 = 0;
@@ -167,12 +170,11 @@
             float x = position.x/10;
             float y = position.y/10;
             
-            for (UIView *i in self.view.subviews){
+            for (UIView *i in weakSelf.view.subviews){
                 if([i isKindOfClass:[UIView class]]){
                     UILabel *newLbl = (UILabel *)i;
                     if(newLbl.tag == 1){
-                        /// Write your code
-                        i.backgroundColor = [UIColor blueColor];
+                        //i.backgroundColor = [UIColor blueColor];
                         i.center = CGPointMake(x, y);
                     }//if
                 }//if
