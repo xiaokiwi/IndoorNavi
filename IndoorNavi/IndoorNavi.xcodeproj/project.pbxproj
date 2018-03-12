@@ -1,0 +1,660 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1024D952106C88B6672BB355 /* libPods-IndoorNavi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78023BBAF442277B7DBD7B95 /* libPods-IndoorNavi.a */; };
+		57A15CE22055DB1E000E3E2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A15CE12055DB1E000E3E2E /* AppDelegate.m */; };
+		57A15CE52055DB1E000E3E2E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A15CE42055DB1E000E3E2E /* ViewController.m */; };
+		57A15CE82055DB1E000E3E2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57A15CE62055DB1E000E3E2E /* Main.storyboard */; };
+		57A15CEB2055DB1E000E3E2E /* IndoorNavi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57A15CE92055DB1E000E3E2E /* IndoorNavi.xcdatamodeld */; };
+		57A15CED2055DB1E000E3E2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57A15CEC2055DB1E000E3E2E /* Assets.xcassets */; };
+		57A15CF02055DB1E000E3E2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57A15CEE2055DB1E000E3E2E /* LaunchScreen.storyboard */; };
+		57A15CF32055DB1E000E3E2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A15CF22055DB1E000E3E2E /* main.m */; };
+		57A15CFD2055DB1E000E3E2E /* IndoorNaviTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A15CFC2055DB1E000E3E2E /* IndoorNaviTests.m */; };
+		57A15D082055DB1E000E3E2E /* IndoorNaviUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A15D072055DB1E000E3E2E /* IndoorNaviUITests.m */; };
+		57A15D1C20561E92000E3E2E /* TriangulationAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A15D1B20561E92000E3E2E /* TriangulationAlgorithm.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		57A15CF92055DB1E000E3E2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57A15CD52055DB1E000E3E2E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 57A15CDC2055DB1E000E3E2E;
+			remoteInfo = IndoorNavi;
+		};
+		57A15D042055DB1E000E3E2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57A15CD52055DB1E000E3E2E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 57A15CDC2055DB1E000E3E2E;
+			remoteInfo = IndoorNavi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		32D35CA8172142FA113DBC07 /* Pods-IndoorNavi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IndoorNavi.release.xcconfig"; path = "Pods/Target Support Files/Pods-IndoorNavi/Pods-IndoorNavi.release.xcconfig"; sourceTree = "<group>"; };
+		57A15CDD2055DB1E000E3E2E /* IndoorNavi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IndoorNavi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		57A15CE02055DB1E000E3E2E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		57A15CE12055DB1E000E3E2E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		57A15CE32055DB1E000E3E2E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		57A15CE42055DB1E000E3E2E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		57A15CE72055DB1E000E3E2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		57A15CEA2055DB1E000E3E2E /* IndoorNavi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IndoorNavi.xcdatamodel; sourceTree = "<group>"; };
+		57A15CEC2055DB1E000E3E2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		57A15CEF2055DB1E000E3E2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		57A15CF12055DB1E000E3E2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57A15CF22055DB1E000E3E2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		57A15CF82055DB1E000E3E2E /* IndoorNaviTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IndoorNaviTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57A15CFC2055DB1E000E3E2E /* IndoorNaviTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndoorNaviTests.m; sourceTree = "<group>"; };
+		57A15CFE2055DB1E000E3E2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57A15D032055DB1E000E3E2E /* IndoorNaviUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IndoorNaviUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57A15D072055DB1E000E3E2E /* IndoorNaviUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndoorNaviUITests.m; sourceTree = "<group>"; };
+		57A15D092055DB1E000E3E2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57A15D1A20561E92000E3E2E /* TriangulationAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangulationAlgorithm.h; sourceTree = "<group>"; };
+		57A15D1B20561E92000E3E2E /* TriangulationAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangulationAlgorithm.m; sourceTree = "<group>"; };
+		66F4EAC1A0D4FE2F08552081 /* Pods-IndoorNavi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IndoorNavi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IndoorNavi/Pods-IndoorNavi.debug.xcconfig"; sourceTree = "<group>"; };
+		78023BBAF442277B7DBD7B95 /* libPods-IndoorNavi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IndoorNavi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		57A15CDA2055DB1E000E3E2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1024D952106C88B6672BB355 /* libPods-IndoorNavi.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57A15CF52055DB1E000E3E2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57A15D002055DB1E000E3E2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0CEBF9F7D77D1AC072633DC8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78023BBAF442277B7DBD7B95 /* libPods-IndoorNavi.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		57A15CD42055DB1E000E3E2E = {
+			isa = PBXGroup;
+			children = (
+				57A15CDF2055DB1E000E3E2E /* IndoorNavi */,
+				57A15CFB2055DB1E000E3E2E /* IndoorNaviTests */,
+				57A15D062055DB1E000E3E2E /* IndoorNaviUITests */,
+				57A15CDE2055DB1E000E3E2E /* Products */,
+				C308945FC50D11EFC1C663FE /* Pods */,
+				0CEBF9F7D77D1AC072633DC8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		57A15CDE2055DB1E000E3E2E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				57A15CDD2055DB1E000E3E2E /* IndoorNavi.app */,
+				57A15CF82055DB1E000E3E2E /* IndoorNaviTests.xctest */,
+				57A15D032055DB1E000E3E2E /* IndoorNaviUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		57A15CDF2055DB1E000E3E2E /* IndoorNavi */ = {
+			isa = PBXGroup;
+			children = (
+				57A15D1A20561E92000E3E2E /* TriangulationAlgorithm.h */,
+				57A15D1B20561E92000E3E2E /* TriangulationAlgorithm.m */,
+				57A15CE02055DB1E000E3E2E /* AppDelegate.h */,
+				57A15CE12055DB1E000E3E2E /* AppDelegate.m */,
+				57A15CE32055DB1E000E3E2E /* ViewController.h */,
+				57A15CE42055DB1E000E3E2E /* ViewController.m */,
+				57A15CE62055DB1E000E3E2E /* Main.storyboard */,
+				57A15CEC2055DB1E000E3E2E /* Assets.xcassets */,
+				57A15CEE2055DB1E000E3E2E /* LaunchScreen.storyboard */,
+				57A15CF12055DB1E000E3E2E /* Info.plist */,
+				57A15CF22055DB1E000E3E2E /* main.m */,
+				57A15CE92055DB1E000E3E2E /* IndoorNavi.xcdatamodeld */,
+			);
+			path = IndoorNavi;
+			sourceTree = "<group>";
+		};
+		57A15CFB2055DB1E000E3E2E /* IndoorNaviTests */ = {
+			isa = PBXGroup;
+			children = (
+				57A15CFC2055DB1E000E3E2E /* IndoorNaviTests.m */,
+				57A15CFE2055DB1E000E3E2E /* Info.plist */,
+			);
+			path = IndoorNaviTests;
+			sourceTree = "<group>";
+		};
+		57A15D062055DB1E000E3E2E /* IndoorNaviUITests */ = {
+			isa = PBXGroup;
+			children = (
+				57A15D072055DB1E000E3E2E /* IndoorNaviUITests.m */,
+				57A15D092055DB1E000E3E2E /* Info.plist */,
+			);
+			path = IndoorNaviUITests;
+			sourceTree = "<group>";
+		};
+		C308945FC50D11EFC1C663FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				66F4EAC1A0D4FE2F08552081 /* Pods-IndoorNavi.debug.xcconfig */,
+				32D35CA8172142FA113DBC07 /* Pods-IndoorNavi.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		57A15CDC2055DB1E000E3E2E /* IndoorNavi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57A15D0C2055DB1E000E3E2E /* Build configuration list for PBXNativeTarget "IndoorNavi" */;
+			buildPhases = (
+				DB27FFDB4C4F357754203F26 /* [CP] Check Pods Manifest.lock */,
+				57A15CD92055DB1E000E3E2E /* Sources */,
+				57A15CDA2055DB1E000E3E2E /* Frameworks */,
+				57A15CDB2055DB1E000E3E2E /* Resources */,
+				B86D7FF1B35A9DC59932F8FF /* [CP] Embed Pods Frameworks */,
+				74E31E9874C046D32FD34EC2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IndoorNavi;
+			productName = IndoorNavi;
+			productReference = 57A15CDD2055DB1E000E3E2E /* IndoorNavi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		57A15CF72055DB1E000E3E2E /* IndoorNaviTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57A15D0F2055DB1E000E3E2E /* Build configuration list for PBXNativeTarget "IndoorNaviTests" */;
+			buildPhases = (
+				57A15CF42055DB1E000E3E2E /* Sources */,
+				57A15CF52055DB1E000E3E2E /* Frameworks */,
+				57A15CF62055DB1E000E3E2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				57A15CFA2055DB1E000E3E2E /* PBXTargetDependency */,
+			);
+			name = IndoorNaviTests;
+			productName = IndoorNaviTests;
+			productReference = 57A15CF82055DB1E000E3E2E /* IndoorNaviTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		57A15D022055DB1E000E3E2E /* IndoorNaviUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57A15D122055DB1E000E3E2E /* Build configuration list for PBXNativeTarget "IndoorNaviUITests" */;
+			buildPhases = (
+				57A15CFF2055DB1E000E3E2E /* Sources */,
+				57A15D002055DB1E000E3E2E /* Frameworks */,
+				57A15D012055DB1E000E3E2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				57A15D052055DB1E000E3E2E /* PBXTargetDependency */,
+			);
+			name = IndoorNaviUITests;
+			productName = IndoorNaviUITests;
+			productReference = 57A15D032055DB1E000E3E2E /* IndoorNaviUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		57A15CD52055DB1E000E3E2E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Yewei Wang";
+				TargetAttributes = {
+					57A15CDC2055DB1E000E3E2E = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					57A15CF72055DB1E000E3E2E = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 57A15CDC2055DB1E000E3E2E;
+					};
+					57A15D022055DB1E000E3E2E = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 57A15CDC2055DB1E000E3E2E;
+					};
+				};
+			};
+			buildConfigurationList = 57A15CD82055DB1E000E3E2E /* Build configuration list for PBXProject "IndoorNavi" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 57A15CD42055DB1E000E3E2E;
+			productRefGroup = 57A15CDE2055DB1E000E3E2E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				57A15CDC2055DB1E000E3E2E /* IndoorNavi */,
+				57A15CF72055DB1E000E3E2E /* IndoorNaviTests */,
+				57A15D022055DB1E000E3E2E /* IndoorNaviUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		57A15CDB2055DB1E000E3E2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57A15CF02055DB1E000E3E2E /* LaunchScreen.storyboard in Resources */,
+				57A15CED2055DB1E000E3E2E /* Assets.xcassets in Resources */,
+				57A15CE82055DB1E000E3E2E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57A15CF62055DB1E000E3E2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57A15D012055DB1E000E3E2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		74E31E9874C046D32FD34EC2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IndoorNavi/Pods-IndoorNavi-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B86D7FF1B35A9DC59932F8FF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IndoorNavi/Pods-IndoorNavi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB27FFDB4C4F357754203F26 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IndoorNavi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		57A15CD92055DB1E000E3E2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57A15CE52055DB1E000E3E2E /* ViewController.m in Sources */,
+				57A15D1C20561E92000E3E2E /* TriangulationAlgorithm.m in Sources */,
+				57A15CEB2055DB1E000E3E2E /* IndoorNavi.xcdatamodeld in Sources */,
+				57A15CF32055DB1E000E3E2E /* main.m in Sources */,
+				57A15CE22055DB1E000E3E2E /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57A15CF42055DB1E000E3E2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57A15CFD2055DB1E000E3E2E /* IndoorNaviTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57A15CFF2055DB1E000E3E2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57A15D082055DB1E000E3E2E /* IndoorNaviUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		57A15CFA2055DB1E000E3E2E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 57A15CDC2055DB1E000E3E2E /* IndoorNavi */;
+			targetProxy = 57A15CF92055DB1E000E3E2E /* PBXContainerItemProxy */;
+		};
+		57A15D052055DB1E000E3E2E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 57A15CDC2055DB1E000E3E2E /* IndoorNavi */;
+			targetProxy = 57A15D042055DB1E000E3E2E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		57A15CE62055DB1E000E3E2E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				57A15CE72055DB1E000E3E2E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		57A15CEE2055DB1E000E3E2E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				57A15CEF2055DB1E000E3E2E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		57A15D0A2055DB1E000E3E2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		57A15D0B2055DB1E000E3E2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		57A15D0D2055DB1E000E3E2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66F4EAC1A0D4FE2F08552081 /* Pods-IndoorNavi.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3TDYA9DC6N;
+				INFOPLIST_FILE = IndoorNavi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yeweiwang.IndoorNavi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		57A15D0E2055DB1E000E3E2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32D35CA8172142FA113DBC07 /* Pods-IndoorNavi.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3TDYA9DC6N;
+				INFOPLIST_FILE = IndoorNavi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yeweiwang.IndoorNavi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		57A15D102055DB1E000E3E2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3TDYA9DC6N;
+				INFOPLIST_FILE = IndoorNaviTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yeweiwang.IndoorNaviTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IndoorNavi.app/IndoorNavi";
+			};
+			name = Debug;
+		};
+		57A15D112055DB1E000E3E2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3TDYA9DC6N;
+				INFOPLIST_FILE = IndoorNaviTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yeweiwang.IndoorNaviTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IndoorNavi.app/IndoorNavi";
+			};
+			name = Release;
+		};
+		57A15D132055DB1E000E3E2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3TDYA9DC6N;
+				INFOPLIST_FILE = IndoorNaviUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yeweiwang.IndoorNaviUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = IndoorNavi;
+			};
+			name = Debug;
+		};
+		57A15D142055DB1E000E3E2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3TDYA9DC6N;
+				INFOPLIST_FILE = IndoorNaviUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yeweiwang.IndoorNaviUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = IndoorNavi;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		57A15CD82055DB1E000E3E2E /* Build configuration list for PBXProject "IndoorNavi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57A15D0A2055DB1E000E3E2E /* Debug */,
+				57A15D0B2055DB1E000E3E2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57A15D0C2055DB1E000E3E2E /* Build configuration list for PBXNativeTarget "IndoorNavi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57A15D0D2055DB1E000E3E2E /* Debug */,
+				57A15D0E2055DB1E000E3E2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57A15D0F2055DB1E000E3E2E /* Build configuration list for PBXNativeTarget "IndoorNaviTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57A15D102055DB1E000E3E2E /* Debug */,
+				57A15D112055DB1E000E3E2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57A15D122055DB1E000E3E2E /* Build configuration list for PBXNativeTarget "IndoorNaviUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57A15D132055DB1E000E3E2E /* Debug */,
+				57A15D142055DB1E000E3E2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		57A15CE92055DB1E000E3E2E /* IndoorNavi.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				57A15CEA2055DB1E000E3E2E /* IndoorNavi.xcdatamodel */,
+			);
+			currentVersion = 57A15CEA2055DB1E000E3E2E /* IndoorNavi.xcdatamodel */;
+			path = IndoorNavi.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 57A15CD52055DB1E000E3E2E /* Project object */;
+}

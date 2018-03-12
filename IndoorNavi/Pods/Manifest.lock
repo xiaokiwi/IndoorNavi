@@ -1,0 +1,12 @@
+PODS:
+  - BabyBluetooth (0.7.0)
+
+DEPENDENCIES:
+  - BabyBluetooth (~> 0.7.0)
+
+SPEC CHECKSUMS:
+  BabyBluetooth: d50758aecf24d4a0ab9271d69f0f116d6bee51c9
+
+PODFILE CHECKSUM: 405c1bbeca91b58ee4e1f9542fb4bd37dd8f6a68
+
+COCOAPODS: 1.4.0
