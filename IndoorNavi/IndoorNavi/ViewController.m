@@ -32,15 +32,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 10, 10)];
+    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(150, 150, 20, 20)];
     view1.backgroundColor = [UIColor blueColor];
     view1.tag = 1;
     [self.view addSubview:view1];
-    
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(200, 200, 30, 30)];
-    button.backgroundColor = [UIColor greenColor];
-    [button addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
     
     //bluetooth init
     NSLog(@"viewDidLoad");
@@ -55,29 +50,8 @@
     triangulationCalculator = [[TriangulationCalculator alloc]init];
     
     //directly use without waiting for CBCentralManagerStatePoweredOn
-    //baby.scanForPeripherals().begin();
-    baby.scanForPeripherals().begin().stop(10);
-}
-
-- (void)click {
-    self.view.backgroundColor = [UIColor redColor];
-    //add a new point
-    //UIView *view4 = [[UIView alloc] initWithFrame:CGRectMake(150, 150, 10, 10)];
-    //view4.backgroundColor = [UIColor orangeColor];
-    //[self.view addSubview:view4];
-    //NSLog(@"%@", view4.backgroundColor);
-    
-    //modify old point
-    for (UIView *i in self.view.subviews){
-        if([i isKindOfClass:[UIView class]]){
-            UILabel *newLbl = (UILabel *)i;
-            if(newLbl.tag == 1){
-                /// Write your code
-                i.backgroundColor = [UIColor whiteColor];
-                i.center = CGPointMake(300, 300);
-            }//if
-        }//if
-    }//for loop
+    baby.scanForPeripherals().begin();
+    //baby.scanForPeripherals().begin().stop(10);
 }
 
 #pragma mark -Bluetooth config and control
@@ -85,12 +59,8 @@
 //Bluetooth Delegate setting
 -(void)babyDelegate{
     
-    __weak typeof(self) weakSelf = self;
-    [baby setBlockOnCentralManagerDidUpdateState:^(CBCentralManager *central) {
-        if (central.state == CBCentralManagerStatePoweredOn) {
-        }
-    }];
-    
+    //__weak typeof(self) weakSelf = self;
+
     //Store previous two rssi value
     static int prev_rssi1 = 0;
     static int prevprev_rssi1 = 0;
@@ -107,6 +77,7 @@
     
     //Handle Delegate
     [baby setBlockOnDiscoverToPeripherals:^(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI) {
+        //Searching for different BrtBeacon
         if ([peripheral.name isEqual:@"BrtBeacon01"]) {
             
             if (prev_rssi1 == 0) {
@@ -189,10 +160,24 @@
             prev_rssi3 = avag_rssi_three;
         }
         
+        //ignore the first several data (no coordinate)
         if (distance_one != 0 && distance_two != 0 && distance_three != 0) {
             CGPoint position = [triangulationCalculator calculatePosition:1 beaconId2:2 beaconId3:3 beaconDis1:distance_one*100 beaconDis2:distance_two*100 beaconDis3:distance_three*100];
+            NSLog(@"Position = (%f, %f) ", position.x, position.y);
+            float x = position.x/10;
+            float y = position.y/10;
+            
+            for (UIView *i in self.view.subviews){
+                if([i isKindOfClass:[UIView class]]){
+                    UILabel *newLbl = (UILabel *)i;
+                    if(newLbl.tag == 1){
+                        /// Write your code
+                        i.backgroundColor = [UIColor blueColor];
+                        i.center = CGPointMake(x, y);
+                    }//if
+                }//if
+            }//for loop
         }
-        
     }];
     
     
@@ -205,6 +190,7 @@
         return NO;
     }];
     
+    /*
     [baby setBlockOnCancelAllPeripheralsConnectionBlock:^(CBCentralManager *centralManager) {
         NSLog(@"setBlockOnCancelAllPeripheralsConnectionBlock");
     }];
@@ -212,13 +198,14 @@
     [baby setBlockOnCancelScanBlock:^(CBCentralManager *centralManager) {
         NSLog(@"setBlockOnCancelScanBlock");
     }];
+    */
     
-    
+    /*
     //Ignore same Peripherals found
     NSDictionary *scanForPeripheralsWithOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@YES};
     //connect device->
     [baby setBabyOptionsWithScanForPeripheralsWithOptions:scanForPeripheralsWithOptions connectPeripheralWithOptions:nil scanForPeripheralsWithServices:nil discoverWithServices:nil discoverWithCharacteristics:nil];
-    
+    */
 }
 
 - (void)didReceiveMemoryWarning {

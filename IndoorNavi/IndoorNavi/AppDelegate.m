@@ -27,9 +27,6 @@
     self.window.backgroundColor = [UIColor yellowColor];
     [self.window makeKeyAndVisible];
     
-    //
-    NSArray *centralManagerIdentifiers = launchOptions[UIApplicationLaunchOptionsBluetoothCentralsKey];
-    NSLog(@"%@",centralManagerIdentifiers);
     return YES;
 }
 

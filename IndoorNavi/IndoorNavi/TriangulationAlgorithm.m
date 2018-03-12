@@ -61,8 +61,8 @@
     float PositionY = (1/Delta) * (2 * Beta * (beaconOneCoordinateX - beaconTwoCoordinateX) - 2 * Alpha * (beaconOneCoordinateX - beaconThreeCoordinateX));
     
     
-    NSLog(@"PositionX = %f", PositionX);
-    NSLog(@"PositionY = %f", PositionY);
+    //NSLog(@"PositionX = %f", PositionX);
+    //NSLog(@"PositionY = %f", PositionY);
     
     positionCoordinate.x = PositionX;
     positionCoordinate.y = PositionY;
