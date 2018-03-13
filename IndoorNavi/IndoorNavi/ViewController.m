@@ -64,19 +64,29 @@
     
     __weak typeof(self) weakSelf = self;
 
-    //Store previous two rssi value
+    //Store previous two rssi values
     static int prev_rssi1 = 0;
     static int prevprev_rssi1 = 0;
     static int prev_rssi2 = 0;
     static int prevprev_rssi2 = 0;
     static int prev_rssi3 = 0;
     static int prevprev_rssi3 = 0;
+    static int prev_rssi4 = 0;
+    static int prevprev_rssi4 = 0;
+    static int prev_rssi5 = 0;
+    static int prevprev_rssi5 = 0;
+    //Store avarge rssi values
     static int avag_rssi_one = 0;
     static int avag_rssi_two = 0;
     static int avag_rssi_three = 0;
+    static int avag_rssi_four = 0;
+    static int avag_rssi_five = 0;
+    //Store distance values
     static float distance_one = 0;
     static float distance_two = 0;
     static float distance_three = 0;
+    static float distance_four = 0;
+    static float distance_five = 0;
     
     //Handle Delegate
     [baby setBlockOnDiscoverToPeripherals:^(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI) {
@@ -162,6 +172,61 @@
             prevprev_rssi3 = prev_rssi3;
             prev_rssi3 = avag_rssi_three;
         }
+        /*if ([peripheral.name isEqual:@"BrtBeacon04"]) {
+            
+            if (prev_rssi4 == 0) {
+                prev_rssi4 = [RSSI intValue];
+            }
+            if (prevprev_rssi4 == 0) {
+                prevprev_rssi4 = [RSSI intValue];
+            }
+            avag_rssi_four = ([RSSI intValue] + prev_rssi4 + prevprev_rssi4)/3;
+            //NSLog(@"%@ has RSSI: %@ and %@",peripheral.name, RSSI, avag_rssi);
+            
+            //Translate RSSI value into distance
+            double txPower = -65;
+            if (avag_rssi_four == 0) {
+                distance_four = -1.0;
+            }
+            double ratio = avag_rssi_four*1.0/txPower;
+            if (ratio < 1.0) {
+                distance_four = pow(ratio,10);
+            }
+            else {
+                distance_four = (0.89976)*pow(ratio,7.7095) + 0.111;
+            }
+            NSLog(@"%@ has RSSI: %@ average: %d and %.1f meters", peripheral.name, RSSI, avag_rssi_four, distance_four);
+            prevprev_rssi4 = prev_rssi4;
+            prev_rssi4 = avag_rssi_four;
+        }
+        if ([peripheral.name isEqual:@"BrtBeacon05"]) {
+            
+            if (prev_rssi5 == 0) {
+                prev_rssi5 = [RSSI intValue];
+            }
+            if (prevprev_rssi5 == 0) {
+                prevprev_rssi5 = [RSSI intValue];
+            }
+            avag_rssi_five = ([RSSI intValue] + prev_rssi5 + prevprev_rssi5)/3;
+            //NSLog(@"%@ has RSSI: %@ and %@",peripheral.name, RSSI, avag_rssi);
+            
+            //Translate RSSI value into distance
+            double txPower = -65;
+            if (avag_rssi_five == 0) {
+                distance_five = -1.0;
+            }
+            double ratio = avag_rssi_five*1.0/txPower;
+            if (ratio < 1.0) {
+                distance_five = pow(ratio,10);
+            }
+            else {
+                distance_five = (0.89976)*pow(ratio,7.7095) + 0.111;
+            }
+            NSLog(@"%@ has RSSI: %@ average: %d and %.1f meters", peripheral.name, RSSI, avag_rssi_five, distance_five);
+            prevprev_rssi5 = prev_rssi5;
+            prev_rssi5 = avag_rssi_five;
+        }
+        */
         
         //ignore the first several data (no coordinate)
         if (distance_one != 0 && distance_two != 0 && distance_three != 0) {
@@ -174,7 +239,7 @@
                 if([i isKindOfClass:[UIView class]]){
                     UILabel *newLbl = (UILabel *)i;
                     if(newLbl.tag == 1){
-                        //i.backgroundColor = [UIColor blueColor];
+                        //change the position of view1
                         i.center = CGPointMake(x, y);
                     }//if
                 }//if
