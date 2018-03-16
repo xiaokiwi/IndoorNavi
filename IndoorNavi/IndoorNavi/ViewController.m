@@ -5,7 +5,7 @@
 //  Created by Yewei Wang on 2018/3/11.
 //  Copyright © 2018年 Yewei Wang. All rights reserved.
 //
-
+#import <Foundation/Foundation.h>
 #import "ViewController.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <BabyBluetooth.h>
@@ -32,11 +32,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(49, 30, 30, 30)];
+    view2.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:view2];
+    UIView *view3 = [[UIView alloc] initWithFrame:CGRectMake(315, 30, 30, 30)];
+    view3.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:view3];
+    UIView *view4 = [[UIView alloc] initWithFrame:CGRectMake(182, 605, 30, 30)];
+    view4.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:view4];
     
-    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(150, 150, 10, 10)];
-    //view1.backgroundColor = [UIColor blueColor];
-    UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me.png"]];
-    [view1 addSubview:imageView];
+    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(315, 770, 10, 10)];
+    view1.backgroundColor = [UIColor blueColor];
+    //UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me.png"]];
+    //[view1 addSubview:imageView];
     view1.tag = 1;
     [self.view addSubview:view1];
     
@@ -71,28 +80,27 @@
     static int prevprev_rssi2 = 0;
     static int prev_rssi3 = 0;
     static int prevprev_rssi3 = 0;
-    static int prev_rssi4 = 0;
-    static int prevprev_rssi4 = 0;
-    static int prev_rssi5 = 0;
-    static int prevprev_rssi5 = 0;
+//    static int prev_rssi4 = 0;
+//    static int prevprev_rssi4 = 0;
+//    static int prev_rssi5 = 0;
+//    static int prevprev_rssi5 = 0;
     //Store avarge rssi values
     static int avag_rssi_one = 0;
     static int avag_rssi_two = 0;
     static int avag_rssi_three = 0;
-    static int avag_rssi_four = 0;
-    static int avag_rssi_five = 0;
+//    static int avag_rssi_four = 0;
+//    static int avag_rssi_five = 0;
     //Store distance values
     static float distance_one = 0;
     static float distance_two = 0;
     static float distance_three = 0;
-    static float distance_four = 0;
-    static float distance_five = 0;
+//    static float distance_four = 0;
+//    static float distance_five = 0;
     
     //Handle Delegate
     [baby setBlockOnDiscoverToPeripherals:^(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI) {
         //Searching for different BrtBeacon
         if ([peripheral.name isEqual:@"BrtBeacon01"]) {
-            
             if (prev_rssi1 == 0) {
                 prev_rssi1 = [RSSI intValue];
             }
@@ -104,6 +112,7 @@
             
             //Translate RSSI value into distance
             double txPower = -65;
+            
             if (avag_rssi_one == 0) {
                 distance_one = -1.0;
             }
@@ -114,12 +123,14 @@
             else {
                 distance_one = (0.89976)*pow(ratio,7.7095) + 0.111;
             }
+            //another way to translate RSSI into distance
+            //distance_one = pow(10,((txPower - avag_rssi_one)/22));
+            
             NSLog(@"%@ has RSSI: %@ average: %d and %.1f meters", peripheral.name, RSSI, avag_rssi_one, distance_one);
             prevprev_rssi1 = prev_rssi1;
-            prev_rssi1 = avag_rssi_one;
+            prev_rssi1 = [RSSI intValue];
         }
         if ([peripheral.name isEqual:@"BrtBeacon02"]) {
-            
             if (prev_rssi2 == 0) {
                 prev_rssi2 = [RSSI intValue];
             }
@@ -131,6 +142,7 @@
             
             //Translate RSSI value into distance
             double txPower = -65;
+            
             if (avag_rssi_two == 0) {
                 distance_two = -1.0;
             }
@@ -141,9 +153,10 @@
             else {
                 distance_two = (0.89976)*pow(ratio,7.7095) + 0.111;
             }
-            NSLog(@"%@ has RSSI: %@ average: %d and %.1f meters", peripheral.name, RSSI, avag_rssi_two, distance_two);
+            //distance_two = pow(10,((txPower - avag_rssi_one)/22));
+            //NSLog(@"%@ has RSSI: %@ average: %d and %.1f meters", peripheral.name, RSSI, avag_rssi_two, distance_two);
             prevprev_rssi2 = prev_rssi2;
-            prev_rssi2 = avag_rssi_two;
+            prev_rssi2 = [RSSI intValue];
         }
         if ([peripheral.name isEqual:@"BrtBeacon03"]) {
             
@@ -158,6 +171,7 @@
             
             //Translate RSSI value into distance
             double txPower = -65;
+            
             if (avag_rssi_three == 0) {
                 distance_three = -1.0;
             }
@@ -168,9 +182,10 @@
             else {
                 distance_three = (0.89976)*pow(ratio,7.7095) + 0.111;
             }
-            NSLog(@"%@ has RSSI: %@ average: %d and %.1f meters", peripheral.name, RSSI, avag_rssi_three, distance_three);
+            //distance_three = pow(10,((txPower - avag_rssi_one)/22));
+            //NSLog(@"%@ has RSSI: %@ average: %d and %.1f meters", peripheral.name, RSSI, avag_rssi_three, distance_three);
             prevprev_rssi3 = prev_rssi3;
-            prev_rssi3 = avag_rssi_three;
+            prev_rssi3 = [RSSI intValue];
         }
         /*if ([peripheral.name isEqual:@"BrtBeacon04"]) {
             
@@ -184,7 +199,7 @@
             //NSLog(@"%@ has RSSI: %@ and %@",peripheral.name, RSSI, avag_rssi);
             
             //Translate RSSI value into distance
-            double txPower = -65;
+            double txPower = -67;
             if (avag_rssi_four == 0) {
                 distance_four = -1.0;
             }
@@ -197,7 +212,7 @@
             }
             NSLog(@"%@ has RSSI: %@ average: %d and %.1f meters", peripheral.name, RSSI, avag_rssi_four, distance_four);
             prevprev_rssi4 = prev_rssi4;
-            prev_rssi4 = avag_rssi_four;
+            prev_rssi4 = [RSSI intValue];
         }
         if ([peripheral.name isEqual:@"BrtBeacon05"]) {
             
@@ -211,7 +226,7 @@
             //NSLog(@"%@ has RSSI: %@ and %@",peripheral.name, RSSI, avag_rssi);
             
             //Translate RSSI value into distance
-            double txPower = -65;
+            double txPower = -67;
             if (avag_rssi_five == 0) {
                 distance_five = -1.0;
             }
@@ -224,26 +239,29 @@
             }
             NSLog(@"%@ has RSSI: %@ average: %d and %.1f meters", peripheral.name, RSSI, avag_rssi_five, distance_five);
             prevprev_rssi5 = prev_rssi5;
-            prev_rssi5 = avag_rssi_five;
+            prev_rssi5 = [RSSI intValue];
         }
         */
         
         //ignore the first several data (no coordinate)
         if (distance_one != 0 && distance_two != 0 && distance_three != 0) {
-            CGPoint position = [triangulationCalculator calculatePosition:1 beaconId2:2 beaconId3:3 beaconDis1:distance_one*100 beaconDis2:distance_two*100 beaconDis3:distance_three*100];
-            NSLog(@"Position = (%f, %f) ", position.x, position.y);
-            float x = position.x/10;
-            float y = position.y/10;
+            CGPoint position = [triangulationCalculator calculatePosition:1 beaconId2:2 beaconId3:3 beaconDis1:distance_one*100+200 beaconDis2:distance_two*100+200 beaconDis3:distance_three*100+200];
+            //NSLog(@" Beacon1: %.1f, Beacon2: %.1f, Beacon3: %.1f With Position = (%f, %f) ", distance_one, distance_two, distance_three, position.x, position.y);
+            if (position.x != 0) {
+                //convert to pixels
+                float x = position.x*0.7189+49;
+                float y = position.y*0.7189+30;
             
-            for (UIView *i in weakSelf.view.subviews){
-                if([i isKindOfClass:[UIView class]]){
-                    UILabel *newLbl = (UILabel *)i;
-                    if(newLbl.tag == 1){
-                        //change the position of view1
-                        i.center = CGPointMake(x, y);
+                for (UIView *i in weakSelf.view.subviews){
+                    if([i isKindOfClass:[UIView class]]){
+                        UILabel *newLbl = (UILabel *)i;
+                        if(newLbl.tag == 1){
+                            //change the position of view1
+                            i.center = CGPointMake(x, y);
+                        }//if
                     }//if
-                }//if
-            }//for loop
+                }//for loop
+            }
         }
     }];
     

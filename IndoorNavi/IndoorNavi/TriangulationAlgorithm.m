@@ -10,12 +10,12 @@
     self = [super init];
     if (self) {
         //initialize the positions of the 5 beacons
-        beaconPosition[0].h=500;
-        beaconPosition[0].v=500;
-        beaconPosition[1].h=800;
-        beaconPosition[1].v=500;
-        beaconPosition[2].h=650;
-        beaconPosition[2].v=250;
+        beaconPosition[0].h=0;
+        beaconPosition[0].v=0;
+        beaconPosition[1].h=370;
+        beaconPosition[1].v=0;
+        beaconPosition[2].h=185;
+        beaconPosition[2].v=800;
     }
     return self;
 }
@@ -48,6 +48,12 @@
     //BeaconDistanceTwo   = (BeaconDistanceTwo * 100)     *1;
     //BeaconDistanceThree = (BeaconDistanceThree * 100)   *1;
     
+//    if ((BeaconDistanceOne + BeaconDistanceTwo) <= 330 || (BeaconDistanceTwo + BeaconDistanceThree) <= 300 || (BeaconDistanceOne+ BeaconDistanceThree) <= 300)
+//    {
+//        positionCoordinate.x = 0;
+//        positionCoordinate.y = 0;
+//        return positionCoordinate;
+//    }
     
     //Calculating Delta Alpha Beta
     float Delta   = 4 * ((beaconOneCoordinateX - beaconTwoCoordinateX) * (beaconOneCoordinateY - beaconThreeCoordinateY) - (beaconOneCoordinateX - beaconThreeCoordinateX) * (beaconOneCoordinateY - beaconTwoCoordinateY));
@@ -56,7 +62,7 @@
     
     
     
-    //Real Calculating the Position (Triletaration
+    //Real Calculating the Position Triletaration
     float PositionX = (1/Delta) * (2 * Alpha * (beaconOneCoordinateY - beaconThreeCoordinateY) - 2 * Beta * (beaconOneCoordinateY - beaconTwoCoordinateY));
     float PositionY = (1/Delta) * (2 * Beta * (beaconOneCoordinateX - beaconTwoCoordinateX) - 2 * Alpha * (beaconOneCoordinateX - beaconThreeCoordinateX));
     
