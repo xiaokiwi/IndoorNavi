@@ -73,7 +73,15 @@
 -(void)babyDelegate{
     
     __weak typeof(self) weakSelf = self;
-
+    
+    //Store previous two rssi values
+    static int prev_rssi1 = 0;
+    static int prevprev_rssi1 = 0;
+    static int prev_rssi2 = 0;
+    static int prevprev_rssi2 = 0;
+    static int prev_rssi3 = 0;
+    static int prevprev_rssi3 = 0;
+    
     //Store avarge rssi values
     static int avag_rssi_one = 0;
     static int avag_rssi_two = 0;
@@ -133,6 +141,17 @@
                     }
                     avag_rssi_one = rssi_sum / rssi_count;
                     
+                    //Moving average Algorithm
+                    if (prev_rssi1 == 0) {
+                        prev_rssi1 = avag_rssi_one;
+                    }
+                    if (prevprev_rssi1 == 0) {
+                        prevprev_rssi1 = avag_rssi_one;
+                    }
+                    avag_rssi_one = (avag_rssi_one + prev_rssi1 + prevprev_rssi1)/3;
+                    prevprev_rssi1 = prev_rssi1;
+                    prev_rssi1 = avag_rssi_one;
+                    
                     //Translate RSSI value into distance
                     double txPower = -65;
                     
@@ -146,6 +165,7 @@
                     else {
                         distance_one = (0.89976)*pow(ratio,7.7095) + 0.111;
                     }
+                    
                     //NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_one, distance_one);
                     [rssi_array_one removeAllObjects];
                 }
@@ -191,6 +211,17 @@
                      }
                      avag_rssi_two = rssi_sum / rssi_count;
                      
+                     //Moving average Algorithm
+                     if (prev_rssi2 == 0) {
+                         prev_rssi2 = avag_rssi_two;
+                     }
+                     if (prevprev_rssi2 == 0) {
+                         prevprev_rssi2 = avag_rssi_two;
+                     }
+                     avag_rssi_two = (avag_rssi_two + prev_rssi2 + prevprev_rssi2)/3;
+                     prevprev_rssi2 = prev_rssi2;
+                     prev_rssi2 = avag_rssi_two;
+                     
                      //Translate RSSI value into distance
                      double txPower = -65;
                      
@@ -204,6 +235,7 @@
                      else {
                          distance_two = (0.89976)*pow(ratio,7.7095) + 0.111;
                      }
+                     
                      //NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_two, distance_two);
                      [rssi_array_two removeAllObjects];
                  }
@@ -249,6 +281,17 @@
                     }
                     avag_rssi_three = rssi_sum / rssi_count;
                     
+                    //Moving average Algorithm
+                    if (prev_rssi3 == 0) {
+                        prev_rssi3 = avag_rssi_three;
+                    }
+                    if (prevprev_rssi3 == 0) {
+                        prevprev_rssi3 = avag_rssi_three;
+                    }
+                    avag_rssi_three = (avag_rssi_three + prev_rssi3 + prevprev_rssi3)/3;
+                    prevprev_rssi3 = prev_rssi3;
+                    prev_rssi3 = avag_rssi_three;
+                    
                     //Translate RSSI value into distance
                     double txPower = -65;
                     
@@ -262,6 +305,7 @@
                     else {
                         distance_three = (0.89976)*pow(ratio,7.7095) + 0.111;
                     }
+                    
                     //NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_three, distance_three);
                     [rssi_array_three removeAllObjects];
                 }
