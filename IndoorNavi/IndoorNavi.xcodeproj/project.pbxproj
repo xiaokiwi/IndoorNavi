@@ -10,6 +10,11 @@
 		1024D952106C88B6672BB355 /* libPods-IndoorNavi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78023BBAF442277B7DBD7B95 /* libPods-IndoorNavi.a */; };
 		5746B2DA20564F7900C31C20 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5746B2D920564F7900C31C20 /* background.jpg */; };
 		5746B2DC2056533700C31C20 /* me.png in Resources */ = {isa = PBXBuildFile; fileRef = 5746B2DB2056533600C31C20 /* me.png */; };
+		5746B2E1205DB02300C31C20 /* fingerprinting.m in Sources */ = {isa = PBXBuildFile; fileRef = 5746B2E0205DB02300C31C20 /* fingerprinting.m */; };
+		5746B2E3205DD46F00C31C20 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5746B2E2205DD46F00C31C20 /* UIKit.framework */; };
+		5746B2E5205DD49D00C31C20 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5746B2E4205DD49D00C31C20 /* Foundation.framework */; };
+		5746B2E7205DD4B700C31C20 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5746B2E6205DD4B700C31C20 /* libsqlite3.tbd */; };
+		5746B2EC205DDA8900C31C20 /* rssi_data.m in Sources */ = {isa = PBXBuildFile; fileRef = 5746B2EB205DDA8900C31C20 /* rssi_data.m */; };
 		57A15CE22055DB1E000E3E2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A15CE12055DB1E000E3E2E /* AppDelegate.m */; };
 		57A15CE52055DB1E000E3E2E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A15CE42055DB1E000E3E2E /* ViewController.m */; };
 		57A15CE82055DB1E000E3E2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57A15CE62055DB1E000E3E2E /* Main.storyboard */; };
@@ -43,6 +48,13 @@
 		32D35CA8172142FA113DBC07 /* Pods-IndoorNavi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IndoorNavi.release.xcconfig"; path = "Pods/Target Support Files/Pods-IndoorNavi/Pods-IndoorNavi.release.xcconfig"; sourceTree = "<group>"; };
 		5746B2D920564F7900C31C20 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		5746B2DB2056533600C31C20 /* me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = me.png; sourceTree = "<group>"; };
+		5746B2DF205DB00800C31C20 /* fingerprinting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fingerprinting.h; sourceTree = "<group>"; };
+		5746B2E0205DB02300C31C20 /* fingerprinting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fingerprinting.m; sourceTree = "<group>"; };
+		5746B2E2205DD46F00C31C20 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5746B2E4205DD49D00C31C20 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5746B2E6205DD4B700C31C20 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		5746B2E8205DDA4800C31C20 /* rssi_data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rssi_data.h; sourceTree = "<group>"; };
+		5746B2EB205DDA8900C31C20 /* rssi_data.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rssi_data.m; sourceTree = "<group>"; };
 		57A15CDD2055DB1E000E3E2E /* IndoorNavi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IndoorNavi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A15CE02055DB1E000E3E2E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		57A15CE12055DB1E000E3E2E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -71,6 +83,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5746B2E7205DD4B700C31C20 /* libsqlite3.tbd in Frameworks */,
+				5746B2E5205DD49D00C31C20 /* Foundation.framework in Frameworks */,
+				5746B2E3205DD46F00C31C20 /* UIKit.framework in Frameworks */,
 				1024D952106C88B6672BB355 /* libPods-IndoorNavi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +110,9 @@
 		0CEBF9F7D77D1AC072633DC8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5746B2E6205DD4B700C31C20 /* libsqlite3.tbd */,
+				5746B2E4205DD49D00C31C20 /* Foundation.framework */,
+				5746B2E2205DD46F00C31C20 /* UIKit.framework */,
 				78023BBAF442277B7DBD7B95 /* libPods-IndoorNavi.a */,
 			);
 			name = Frameworks;
@@ -139,6 +157,10 @@
 				57A15CF12055DB1E000E3E2E /* Info.plist */,
 				57A15CF22055DB1E000E3E2E /* main.m */,
 				57A15CE92055DB1E000E3E2E /* IndoorNavi.xcdatamodeld */,
+				5746B2DF205DB00800C31C20 /* fingerprinting.h */,
+				5746B2E0205DB02300C31C20 /* fingerprinting.m */,
+				5746B2E8205DDA4800C31C20 /* rssi_data.h */,
+				5746B2EB205DDA8900C31C20 /* rssi_data.m */,
 			);
 			path = IndoorNavi;
 			sourceTree = "<group>";
@@ -359,11 +381,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5746B2EC205DDA8900C31C20 /* rssi_data.m in Sources */,
 				57A15CE52055DB1E000E3E2E /* ViewController.m in Sources */,
 				57A15D1C20561E92000E3E2E /* TriangulationAlgorithm.m in Sources */,
 				57A15CEB2055DB1E000E3E2E /* IndoorNavi.xcdatamodeld in Sources */,
 				57A15CF32055DB1E000E3E2E /* main.m in Sources */,
 				57A15CE22055DB1E000E3E2E /* AppDelegate.m in Sources */,
+				5746B2E1205DB02300C31C20 /* fingerprinting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

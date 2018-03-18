@@ -11,6 +11,8 @@
 #import <BabyBluetooth.h>
 #import "TriangulationAlgorithm.h"
 #include <math.h>
+#import "fingerprinting.h"
+#import "rssi_data.h"
 
 @interface ViewController () {
     NSMutableArray *peripheralDataArray;
@@ -32,6 +34,54 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //database control
+    DataBaseHandle * dataBaseHandle = [DataBaseHandle dataBaseHandleWithDataBaseName:@"RssiDB"];
+    
+    // Find all points in the database
+    NSArray * allPoints = [dataBaseHandle selectAllKeyValues];
+
+    // Insert Data (examples)
+    RssiEntity * entity = [[RssiEntity alloc] init];
+    entity.number = 1 ;
+    entity.x = 100;
+    entity.y = 321;
+    entity.beacon = 1;
+    entity.value = -65;
+
+    RssiEntity * entity2 = [[RssiEntity alloc] init];
+    entity2.number = 2 ;
+    entity2.x = 200;
+    entity2.y = 421;
+    entity2.beacon = 2;
+    entity2.value = -66;
+
+    [dataBaseHandle insertDataWithKeyValues:entity];
+    [dataBaseHandle insertDataWithKeyValues:entity2];
+
+    // Select all data
+    allPoints = [dataBaseHandle selectAllKeyValues];
+    NSLog(@"%ld", [allPoints count]);
+
+    // Update Data
+    [dataBaseHandle updateRssi:-80 x_value:100 y_value:321];
+    [dataBaseHandle updateRssi:-90 x_value:200 y_value:421 ];
+    
+    // Select one of data
+    RssiEntity * selectRssi = [dataBaseHandle selectOneByNumber:1];
+    RssiEntity * selectRssi2 = [dataBaseHandle selectOneByNumber:2];
+    NSLog(@"%ld", selectRssi.value);
+    NSLog(@"%ld", selectRssi2.value);
+    
+    // Delete one of data
+    [dataBaseHandle deleteOneRssi:100 y_value:321];
+    
+    // Find all points in the database
+    allPoints = [dataBaseHandle selectAllKeyValues];
+    NSLog(@"%ld", [allPoints count]);
+    
+    // Delete the table
+    [dataBaseHandle dropTable];
+
     // Do any additional setup after loading the view, typically from a nib.
     UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(49, 30, 30, 30)];
     view2.backgroundColor = [UIColor orangeColor];

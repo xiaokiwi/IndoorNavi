@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <BabyBluetooth.h>
+#import "fingerprinting.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //User interface
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     ViewController *controller = [[ViewController alloc] init];
