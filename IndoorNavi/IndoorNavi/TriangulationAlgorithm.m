@@ -12,12 +12,12 @@
         //initialize the positions of the 5 beacons
         //beaconPosition[0].h=0;
         //beaconPosition[0].v=0;
-        beaconPosition[0].h=0;
-        beaconPosition[0].v=0;
-        beaconPosition[1].h=370;
-        beaconPosition[1].v=0;
-        beaconPosition[2].h=185;
-        beaconPosition[2].v=800;
+        beaconPosition[0].h=315;
+        beaconPosition[0].v=770;
+        beaconPosition[1].h=49;
+        beaconPosition[1].v=770;
+        beaconPosition[2].h=182;
+        beaconPosition[2].v=30;
     }
     return self;
 }
