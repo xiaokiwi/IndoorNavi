@@ -395,9 +395,11 @@
         //              }
 
         //ignore the first several data (no coordinate)
-
+        //distance_one = 2.4;
+        //distance_two = 8.3;
+        //distance_three = 12.3;
         if (distance_one != 0 && distance_two != 0 && distance_three != 0) {
-            CGPoint position = [triangulationCalculator calculatePosition:1 beaconId2:2 beaconId3:3 beaconDis1:distance_one*100 beaconDis2:distance_two*100 beaconDis3:distance_three*100];
+            CGPoint position = [triangulationCalculator calculatePosition:1 beaconId2:2 beaconId3:3 beaconDis1:distance_one beaconDis2:distance_two beaconDis3:distance_three];
             //NSLog(@" Beacon1: %d, Beacon2: %d, Beacon3: %d With Position = (%f, %f) ", avag_rssi_one, avag_rssi_two, avag_rssi_three, position.x, position.y);
             NSLog(@" Beacon1: %d and %.2f, Beacon2: %d and %.2f, Beacon3: %d and %.2f", avag_rssi_one, distance_one, avag_rssi_two, distance_two, avag_rssi_three, distance_three);
             if (position.x != 0) {
