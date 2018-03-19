@@ -12,7 +12,6 @@
         //initialize the positions of the 5 beacons
         //beaconPosition[0].h=0;
         //beaconPosition[0].v=0;
-        beaconPosition[1].v=0;
         beaconPosition[0].x=0;
         beaconPosition[0].y=0;
         beaconPosition[1].x=3.7;
