@@ -84,14 +84,21 @@
 
     // Do any additional setup after loading the view, typically from a nib.
     UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(182, 30, 10, 10)];
+    //   UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 39, 30, 30)];
     view2.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:view2];
     UIView *view3 = [[UIView alloc] initWithFrame:CGRectMake(49, 770, 10, 10)];
+     // UIView *view3 = [[UIView alloc] initWithFrame:CGRectMake(384, 39, 30, 30)];
     view3.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:view3];
     UIView *view4 = [[UIView alloc] initWithFrame:CGRectMake(315, 770, 10, 10)];
+    //UIView *view4 = [[UIView alloc] initWithFrame:CGRectMake(0, 709, 30, 30)];
     view4.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:view4];
+    
+    //UIView *view5 = [[UIView alloc] initWithFrame:CGRectMake(384, 709, 30, 30)];
+    //view5.backgroundColor = [UIColor orangeColor];
+    //[self.view addSubview:view5];
     
     UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(182, 300, 10, 10)];
     view1.backgroundColor = [UIColor blueColor];
@@ -388,16 +395,21 @@
         //              }
 
         //ignore the first several data (no coordinate)
+
         if (distance_one != 0 && distance_two != 0 && distance_three != 0) {
             CGPoint position = [triangulationCalculator calculatePosition:1 beaconId2:2 beaconId3:3 beaconDis1:distance_one*100 beaconDis2:distance_two*100 beaconDis3:distance_three*100];
             //NSLog(@" Beacon1: %d, Beacon2: %d, Beacon3: %d With Position = (%f, %f) ", avag_rssi_one, avag_rssi_two, avag_rssi_three, position.x, position.y);
             NSLog(@" Beacon1: %d and %.2f, Beacon2: %d and %.2f, Beacon3: %d and %.2f", avag_rssi_one, distance_one, avag_rssi_two, distance_two, avag_rssi_three, distance_three);
             if (position.x != 0) {
                 //convert to pixels
-                //float x = position.x*0.7189+49;
-                //float y = position.y*0.7189+30;
-                float x = position.x;
-                float y = position.y;
+
+
+                //for iphoneX
+                float x = position.x*33.5294+49;
+                float y = position.y*47.4359+30;
+                //for iphone 7 plus
+                //float x = position.x * 45.1765;
+                //float y= position.y * 42.9487 + 39;
                 for (UIView *i in weakSelf.view.subviews){
                     if([i isKindOfClass:[UIView class]]){
                         UILabel *newLbl = (UILabel *)i;
