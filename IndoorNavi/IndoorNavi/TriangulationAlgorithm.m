@@ -13,11 +13,11 @@
         //beaconPosition[0].h=0;
         //beaconPosition[0].v=0;
         beaconPosition[0].x=0;
-        beaconPosition[0].y=2;
-        beaconPosition[1].x=8.5;
-        beaconPosition[1].y=9.5;
-        beaconPosition[2].x=4;
-        beaconPosition[2].y=16.5;
+        beaconPosition[0].y=0;
+        beaconPosition[1].x=0;
+        beaconPosition[1].y=17.6;
+        beaconPosition[2].x=5;
+        beaconPosition[2].y=8.8;
     }
     return self;
 }
@@ -80,9 +80,9 @@
                                       forBeaconDiscances:distanceArray];
     
     
-//    NSLog(@"Corrected output is: ");
-//    NSLog(@"PositionX = %f", correctedCoordinate.x);
-//    NSLog(@"PositionY = %f", correctedCoordinate.y);
+   NSLog(@"Corrected output is: ");
+   NSLog(@"PositionX = %f", correctedCoordinate.x);
+   NSLog(@"PositionY = %f", correctedCoordinate.y);
     return correctedCoordinate;
 }
 

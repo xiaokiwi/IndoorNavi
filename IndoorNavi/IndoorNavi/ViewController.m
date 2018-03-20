@@ -169,8 +169,8 @@
         //Searching for different BrtBeacon
         
         if ([peripheral.name isEqual:@"BrtBeacon01"]) {
-            if (ignore_count > 100 && [RSSI intValue] != 127) {
-                if ( [rssi_array_one count] < 50 ) {
+            if (ignore_count > 50 && [RSSI intValue] != 127) {
+                if ( [rssi_array_one count] < 20 ) {
                     [rssi_array_one addObject:RSSI];
                     //NSLog(@"RSSI:%@", RSSI);
                 }
@@ -181,7 +181,7 @@
                     for (i = 0, count = [rssi_array_one count]; i < count; i = i+1) {
                         container = container + [[rssi_array_one objectAtIndex:i] intValue];
                     }
-                    float u = container/50;
+                    float u = container/20;
                     float container2 = 0;
                     
                     for (i = 0, count = [rssi_array_one count]; i < count; i = i+1) {
@@ -190,7 +190,7 @@
                         //NSLog(@"temp:%.lf pow:%.1f", temp, pow(temp,2));
                         container2 = container2 + pow(temp,2);
                     }
-                    float v = pow((container2/49),0.5);
+                    float v = pow((container2/19),0.5);
                     //NSLog(@"u:%.lf  v:%.1f", u, v);
                     
                     float rssi_sum = 0;
@@ -238,8 +238,8 @@
             }
         }
         else if ([peripheral.name isEqual:@"BrtBeacon02"]) {
-             if (ignore_count > 100 && [RSSI intValue] != 127) {
-                 if ( [rssi_array_two count] < 50 ) {
+             if (ignore_count > 50 && [RSSI intValue] != 127) {
+                 if ( [rssi_array_two count] < 20 ) {
                      [rssi_array_two addObject:RSSI];
                      //NSLog(@"RSSI:%@", RSSI);
                  }
@@ -250,7 +250,7 @@
                      for (i = 0, count = [rssi_array_two count]; i < count; i = i+1) {
                          container = container + [[rssi_array_two objectAtIndex:i] intValue];
                      }
-                     float u = container/50;
+                     float u = container/20;
                      float container2 = 0;
                      
                      for (i = 0, count = [rssi_array_two count]; i < count; i = i+1) {
@@ -259,7 +259,7 @@
                          //NSLog(@"temp:%.lf pow:%.1f", temp, pow(temp,2));
                          container2 = container2 + pow(temp,2);
                      }
-                     float v = pow((container2/49),0.5);
+                     float v = pow((container2/19),0.5);
                      //NSLog(@"u:%.lf  v:%.1f", u, v);
                      
                      float rssi_sum = 0;
@@ -285,17 +285,7 @@
                      
                      //Translate RSSI value into distance
                      double txPower = -50;
-//
-//                     if (avag_rssi_two == 0) {
-//                         distance_two = -1.0;
-//                     }
-//                     double ratio = avag_rssi_two*1.0/txPower;
-//                     if (ratio < 1.0) {
-//                         distance_two = pow(ratio,10);
-//                     }
-//                     else {
-//                         distance_two = (0.89976)*pow(ratio,7.7095) + 0.111;
-//                     }
+ 
                      distance_two = pow(10,((txPower - avag_rssi_two)/22));
                      //NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_two, distance_two);
                      [rssi_array_two removeAllObjects];
@@ -307,10 +297,10 @@
              }
         }
         else if ([peripheral.name isEqual:@"BrtBeacon03"]) {
-            if (ignore_count > 100 && [RSSI intValue] != 127) {
-                if ( [rssi_array_three count] < 50 ) {
+            if (ignore_count > 50 && [RSSI intValue] != 127) {
+                if ( [rssi_array_three count] < 20 ) {
                     [rssi_array_three addObject:RSSI];
-                    //NSLog(@"RSSI:%@", RSSI);
+                    NSLog(@"RSSI:%@", RSSI);
                 }
                 else {
                     NSUInteger count;
@@ -319,7 +309,7 @@
                     for (i = 0, count = [rssi_array_three count]; i < count; i = i+1) {
                         container = container + [[rssi_array_three objectAtIndex:i] intValue];
                     }
-                    float u = container/50;
+                    float u = container/20;
                     float container2 = 0;
                     
                     for (i = 0, count = [rssi_array_three count]; i < count; i = i+1) {
@@ -328,7 +318,7 @@
                         //NSLog(@"temp:%.lf pow:%.1f", temp, pow(temp,2));
                         container2 = container2 + pow(temp,2);
                     }
-                    float v = pow((container2/49),0.5);
+                    float v = pow((container2/19),0.5);
                     //NSLog(@"u:%.lf  v:%.1f", u, v);
                     
                     float rssi_sum = 0;
@@ -342,7 +332,7 @@
                         }
                     }
                     avag_rssi_three = rssi_sum / rssi_count;
-                    
+                    //NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_three, distance_three);
                     //Moving average Algorithm
                     if (prev_rssi3 == 0 || prevprev_rssi3 == 0) {
                         prev_rssi3 = avag_rssi_three;
@@ -353,18 +343,8 @@
                     prev_rssi3 = avag_rssi_three;
                     
                     //Translate RSSI value into distance
-                    double txPower = -55;
-                    
-//                    if (avag_rssi_three == 0) {
-//                        distance_three = -1.0;
-//                    }
-//                    double ratio = avag_rssi_three*1.0/txPower;
-//                    if (ratio < 1.0) {
-//                        distance_three = pow(ratio,10);
-//                    }
-//                    else {
-//                        distance_three = (0.89976)*pow(ratio,7.7095) + 0.111;
-//                    }
+                    double txPower = -50;
+
                     distance_three = pow(10,((txPower - avag_rssi_three)/22));
                     //NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_three, distance_three);
                     [rssi_array_three removeAllObjects];
@@ -452,9 +432,10 @@
             if (position.x != 0) {
                 //convert to pixels
                 
-                //for iphoneX
-                float x = weighted_x*33.5294+49;
-                float y = weighted_y*47.4359+30;
+                //for iphone_7plus
+                float x = position.x*76.8;  //384/5
+                float y = position.y*38.068 + 39; //670/17.6
+                NSLog(@"xyValue: %.1f and %.1f", x, y);
                 //for iphone 7 plus
                 //float x = weighted_x * 45.1765;
                 //float y= weighted_y * 42.9487 + 39;
