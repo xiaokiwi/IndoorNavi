@@ -32,6 +32,9 @@
 // Select data by number
 -(RssiEntity *)selectOneByNumber:(NSInteger)number ;
 
+// Select data by beacon and rssi value
+-(NSMutableArray *)selectOneByrssi:(NSInteger)beacon value:(NSInteger)value;
+
 // delete data by x and y
 -(void)deleteOneRssi:(NSInteger)x_value y_value:(NSInteger)y_value;
 

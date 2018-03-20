@@ -57,13 +57,11 @@ static sqlite3 * db ;
 -(void)openDataBase
 {
     NSString * dataBaseFile = [self dataBaseFile];
-    
-    NSLog(@"%@",dataBaseFile);
-    
+    //NSLog(@"%@",dataBaseFile);
     int result = sqlite3_open([dataBaseFile UTF8String], &db);
     
     if (result == SQLITE_OK) {
-        NSLog(@"Database opened!");
+        //NSLog(@"Database opened!");
     }
     else{
         NSLog(@"Database failed!");
@@ -73,8 +71,8 @@ static sqlite3 * db ;
 // Close database
 -(void)closeDataBase
 {
-    int result = sqlite3_close(db);
-    NSLog(@"%@",result == SQLITE_OK ? @"Closed successfully":@"Closed unsuccessfully");
+    sqlite3_close(db);
+    //NSLog(@"%@",result == SQLITE_OK ? @"Closed successfully":@"Closed unsuccessfully");
 }
 
 // Insert data
@@ -92,7 +90,7 @@ static sqlite3 * db ;
     int result = sqlite3_prepare_v2(db, [sqlStr UTF8String], -1, &stmt, NULL);
     
     if (result == SQLITE_OK) {
-        NSLog(@"Can insert data");
+        NSLog(@"Inserted data");
         // Bind data
         sqlite3_bind_int(stmt, 1, (int)entity.number);
         sqlite3_bind_int(stmt, 2, (int)entity.x);
@@ -193,7 +191,41 @@ static sqlite3 * db ;
     sqlite3_finalize(stmt);
     [self closeDataBase];
     
-    return entity ;
+    return entity;
+}
+
+// Select data by beacon and rssi value
+-(NSMutableArray *)selectOneByrssi:(NSInteger)beacon value:(NSInteger)value
+{
+    NSMutableArray * xy_array = [[NSMutableArray alloc] init];;
+    [self openDataBase];
+    NSString * sql = @"select * from RssiList where beacon = ? and value >= ? and value <= ?";
+    // @"select * from RssiList where number > ? limit 5" only select first 5 elements
+    // @"select * from RssiList where number > ? limit 3,5" ignore the first 3 elements and then select5 elements
+    // @"select * from RssiList where number > ?  order by stu_age disc " Ordered by desc
+    // @"select x,y from RssiList where ...... " Select x and y values
+    
+    sqlite3_stmt * stmt = nil ;
+    RssiEntity * entity = [[RssiEntity alloc] init];
+    
+    int result = sqlite3_prepare_v2(db, [sql UTF8String], -1, &stmt, NULL);
+    
+    if (result == SQLITE_OK) {
+        sqlite3_bind_int(stmt, 1, (int)beacon);
+        sqlite3_bind_int(stmt, 2, (int)(value-2));
+        sqlite3_bind_int(stmt, 3, (int)(value+2));
+        
+        while (sqlite3_step(stmt) == SQLITE_ROW) {
+            entity.x = sqlite3_column_int(stmt, 1);
+            entity.y = sqlite3_column_int(stmt, 2);
+            NSString * xy_value = [NSString stringWithFormat:@"%@ %@",[NSString stringWithFormat:@"%ld", (long)entity.x],[NSString stringWithFormat:@"%ld", (long)entity.y]];
+            [xy_array addObject:xy_value];
+        }
+    }
+
+    sqlite3_finalize(stmt);
+    [self closeDataBase];
+    return xy_array;
 }
 
 // Delete data by x and y

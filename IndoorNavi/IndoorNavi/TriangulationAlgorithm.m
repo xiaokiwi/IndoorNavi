@@ -66,9 +66,9 @@
     float PositionX = (1/Delta) * (2 * Alpha * (beaconOneCoordinateY - beaconThreeCoordinateY) - 2 * Beta * (beaconOneCoordinateY - beaconTwoCoordinateY));
     float PositionY = (1/Delta) * (2 * Beta * (beaconOneCoordinateX - beaconTwoCoordinateX) - 2 * Alpha * (beaconOneCoordinateX - beaconThreeCoordinateX));
     
-    NSLog(@"Method1 output is: ");
-    NSLog(@"PositionX = %f", PositionX);
-    NSLog(@"PositionY = %f", PositionY);
+//    NSLog(@"Method1 output is: ");
+//    NSLog(@"PositionX = %f", PositionX);
+//    NSLog(@"PositionY = %f", PositionY);
     
     positionCoordinate.x = PositionX;
     positionCoordinate.y = PositionY;
@@ -80,9 +80,9 @@
                                       forBeaconDiscances:distanceArray];
     
     
-    NSLog(@"Corrected output is: ");
-    NSLog(@"PositionX = %f", correctedCoordinate.x);
-    NSLog(@"PositionY = %f", correctedCoordinate.y);
+//    NSLog(@"Corrected output is: ");
+//    NSLog(@"PositionX = %f", correctedCoordinate.x);
+//    NSLog(@"PositionY = %f", correctedCoordinate.y);
     return correctedCoordinate;
 }
 
