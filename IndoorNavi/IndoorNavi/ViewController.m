@@ -90,22 +90,15 @@
     //[dataBaseHandle dropTable];
 
     // Do any additional setup after loading the view, typically from a nib.
-    UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(182, 30, 10, 10)];
-    //   UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 39, 30, 30)];
-    view2.backgroundColor = [UIColor orangeColor];
-    [self.view addSubview:view2];
-    UIView *view3 = [[UIView alloc] initWithFrame:CGRectMake(49, 770, 10, 10)];
-     // UIView *view3 = [[UIView alloc] initWithFrame:CGRectMake(384, 39, 30, 30)];
-    view3.backgroundColor = [UIColor orangeColor];
-    [self.view addSubview:view3];
-    UIView *view4 = [[UIView alloc] initWithFrame:CGRectMake(315, 770, 10, 10)];
-    //UIView *view4 = [[UIView alloc] initWithFrame:CGRectMake(0, 709, 30, 30)];
-    view4.backgroundColor = [UIColor orangeColor];
-    [self.view addSubview:view4];
-    
-    //UIView *view5 = [[UIView alloc] initWithFrame:CGRectMake(384, 709, 30, 30)];
-    //view5.backgroundColor = [UIColor orangeColor];
-    //[self.view addSubview:view5];
+//    UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(182, 30, 10, 10)];
+//    view2.backgroundColor = [UIColor orangeColor];
+//    [self.view addSubview:view2];
+//    UIView *view3 = [[UIView alloc] initWithFrame:CGRectMake(49, 770, 10, 10)];
+//    view3.backgroundColor = [UIColor orangeColor];
+//    [self.view addSubview:view3];
+//    UIView *view4 = [[UIView alloc] initWithFrame:CGRectMake(315, 770, 10, 10)];
+//    view4.backgroundColor = [UIColor orangeColor];
+//    [self.view addSubview:view4];
     
     UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(182, 300, 10, 10)];
     view1.backgroundColor = [UIColor blueColor];
@@ -460,8 +453,8 @@
                 float x = weighted_x*33.5294+49;
                 float y = weighted_y*47.4359+30;
                 //for iphone 7 plus
-                //float x = position.x * 45.1765;
-                //float y= position.y * 42.9487 + 39;
+                //float x = weighted_x * 45.1765;
+                //float y= weighted_y * 42.9487 + 39;
                 for (UIView *i in weakSelf.view.subviews){
                     if([i isKindOfClass:[UIView class]]){
                         UILabel *newLbl = (UILabel *)i;
