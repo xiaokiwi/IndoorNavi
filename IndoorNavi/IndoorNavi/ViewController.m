@@ -6,6 +6,7 @@
 //  Copyright © 2018年 Yewei Wang. All rights reserved.
 //
 #import <Foundation/Foundation.h>
+#import <CoreMotion/CoreMotion.h>
 #import "ViewController.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <BabyBluetooth.h>
@@ -13,6 +14,7 @@
 #include <math.h>
 #import "fingerprinting.h"
 #import "rssi_data.h"
+
 
 @interface ViewController () {
     NSMutableArray *peripheralDataArray;
@@ -34,6 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     //Database Setup
     DataBaseHandle * dataBaseHandle = [DataBaseHandle dataBaseHandleWithDataBaseName:@"RssiDB"];
 
@@ -128,7 +131,7 @@
 
 //Bluetooth Delegate setting
 -(void)babyDelegate{
-    
+
     __weak typeof(self) weakSelf = self;
     
     // database opened
@@ -225,7 +228,7 @@
 //                        distance_one = (0.89976)*pow(ratio,7.7095) + 0.111;
 //                    }
                     distance_one = pow(10,((txPower - avag_rssi_one)/22));
-                    NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_one, distance_one);
+                    //NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_one, distance_one);
                     [rssi_array_one removeAllObjects];
                     flag = 1;
                 }
@@ -294,7 +297,7 @@
 //                         distance_two = (0.89976)*pow(ratio,7.7095) + 0.111;
 //                     }
                      distance_two = pow(10,((txPower - avag_rssi_two)/22));
-                     NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_two, distance_two);
+                     //NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_two, distance_two);
                      [rssi_array_two removeAllObjects];
                      flag = 1;
                  }
@@ -363,7 +366,7 @@
 //                        distance_three = (0.89976)*pow(ratio,7.7095) + 0.111;
 //                    }
                     distance_three = pow(10,((txPower - avag_rssi_three)/22));
-                    NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_three, distance_three);
+                    //NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_three, distance_three);
                     [rssi_array_three removeAllObjects];
                     flag = 1;
                 }
@@ -378,7 +381,7 @@
             //Trilangulation Algorithm
             CGPoint position = [triangulationCalculator calculatePosition:1 beaconId2:2 beaconId3:3 beaconDis1:distance_one beaconDis2:distance_two beaconDis3:distance_three];
             //NSLog(@" Beacon1: %d, Beacon2: %d, Beacon3: %d With Position = (%f, %f) ", avag_rssi_one, avag_rssi_two, avag_rssi_three, position.x, position.y);
-            //NSLog(@" Beacon1: %d and %.2f, Beacon2: %d and %.2f, Beacon3: %d and %.2f", avag_rssi_one, distance_one, avag_rssi_two, distance_two, avag_rssi_three, distance_three);
+            NSLog(@" Beacon1: %d and %.2f, Beacon2: %d and %.2f, Beacon3: %d and %.2f", avag_rssi_one, distance_one, avag_rssi_two, distance_two, avag_rssi_three, distance_three);
             
             //Fingerprinting Algorithm
             NSMutableArray * xy_one = [dataBaseHandle selectOneByrssi:1 value:avag_rssi_one];
@@ -432,7 +435,7 @@
             float finger_y = [[Seperated_XY objectAtIndex:1] floatValue];
             
             //NSMutableArray * result = [dataBaseHandle selectOneByrssi:1 value:-65];
-            NSLog(@"xyValue: %.1f and %.1f", finger_x, finger_y);
+            //NSLog(@"xyValue: %.1f and %.1f", finger_x, finger_y);
 
             //Weighted fused results from both Algorithm
             float weighted_x;
