@@ -595,20 +595,44 @@
 //    view4.backgroundColor = [UIColor orangeColor];
 //    [self.view addSubview:view4];
     
-    UIButton * button1 = [[UIButton alloc]initWithFrame:CGRectMake(150, 100, 90, 90)];
-    button1.backgroundColor = [UIColor greenColor];
+    UIButton *button1 = [[UIButton alloc] init];
+    button1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    button1.frame = CGRectMake(100, 100, 180, 90);
+    [button1 setTitle:@"Power: Low" forState:UIControlStateNormal];
+    [button1 setBackgroundImage:[UIImage imageNamed:@"button.png"] forState:UIControlStateNormal];
     [button1 addTarget:self action:@selector(click1) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button1];
     
-    UIButton * button2 = [[UIButton alloc]initWithFrame:CGRectMake(150, 300, 90, 90)];
-    button2.backgroundColor = [UIColor greenColor];
+    UIButton *button2 = [[UIButton alloc] init];
+    button2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    button2.frame = CGRectMake(100, 300, 180, 90);
+    [button2 setTitle:@"Power: Medium" forState:UIControlStateNormal];
+    [button2 setBackgroundImage:[UIImage imageNamed:@"button.png"] forState:UIControlStateNormal];
     [button2 addTarget:self action:@selector(click2) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button2];
     
-    UIButton * button3 = [[UIButton alloc]initWithFrame:CGRectMake(150, 500, 90, 90)];
-    button3.backgroundColor = [UIColor greenColor];
+    UIButton *button3 = [[UIButton alloc] init];
+    button3 = [UIButton buttonWithType:UIButtonTypeCustom];
+    button3.frame = CGRectMake(100, 500, 180, 90);
+    [button3 setTitle:@"Power: High" forState:UIControlStateNormal];
+    [button3 setBackgroundImage:[UIImage imageNamed:@"button.png"] forState:UIControlStateNormal];
     [button3 addTarget:self action:@selector(click3) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button3];
+    
+//    UIButton * button1 = [[UIButton alloc]initWithFrame:CGRectMake(150, 100, 90, 90)];
+//    button1.backgroundColor = [UIColor greenColor];
+//    [button1 addTarget:self action:@selector(click1) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:button1];
+    
+//    UIButton * button2 = [[UIButton alloc]initWithFrame:CGRectMake(150, 300, 90, 90)];
+//    button2.backgroundColor = [UIColor greenColor];
+//    [button2 addTarget:self action:@selector(click2) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:button2];
+//
+//    UIButton * button3 = [[UIButton alloc]initWithFrame:CGRectMake(150, 500, 90, 90)];
+//    button3.backgroundColor = [UIColor greenColor];
+//    [button3 addTarget:self action:@selector(click3) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:button3];
 
     //bluetooth init
     NSLog(@"viewDidLoad");
