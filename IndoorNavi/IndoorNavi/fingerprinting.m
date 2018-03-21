@@ -212,8 +212,8 @@ static sqlite3 * db ;
     
     if (result == SQLITE_OK) {
         sqlite3_bind_int(stmt, 1, (int)beacon);
-        sqlite3_bind_int(stmt, 2, (int)(value-2));
-        sqlite3_bind_int(stmt, 3, (int)(value+2));
+        sqlite3_bind_int(stmt, 2, (int)(value-1));
+        sqlite3_bind_int(stmt, 3, (int)(value+1));
         
         while (sqlite3_step(stmt) == SQLITE_ROW) {
             entity.x = sqlite3_column_int(stmt, 1);

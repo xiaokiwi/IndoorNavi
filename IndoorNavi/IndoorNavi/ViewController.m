@@ -38,7 +38,7 @@
     [super viewDidLoad];
 
     //Database Setup
-    DataBaseHandle * dataBaseHandle = [DataBaseHandle dataBaseHandleWithDataBaseName:@"RssiDB"];
+    DataBaseHandle * dataBaseHandle = [DataBaseHandle dataBaseHandleWithDataBaseName:@"Rssi2DB"];
 
     // Insert Data (examples)
     RssiEntity * entity1 = [[RssiEntity alloc] init];
@@ -629,7 +629,7 @@
     __weak typeof(self) weakSelf = self;
     
     // database opened
-    DataBaseHandle * dataBaseHandle = [DataBaseHandle dataBaseHandleWithDataBaseName:@"RssiDB"];
+    DataBaseHandle * dataBaseHandle = [DataBaseHandle dataBaseHandleWithDataBaseName:@"Rssi2DB"];
 
     //Store previous two rssi values
     static int prev_rssi1 = 0;
@@ -914,14 +914,14 @@
             float finger_y = [[Seperated_XY objectAtIndex:1] floatValue];
             
             //NSMutableArray * result = [dataBaseHandle selectOneByrssi:1 value:-65];
-            //NSLog(@"xyValue: %.1f and %.1f", finger_x, finger_y);
+            NSLog(@"xyValue: %.1f and %.1f", finger_x, finger_y);
 
             //Weighted fused results from both Algorithm
             float weighted_x;
             float weighted_y;
             if (finger_x != 0 && finger_y != 0){
-                weighted_x = (70*finger_x/100) + (30*position.x/100);
-                weighted_y = (70*finger_y/100) + (30*position.y/100);
+                weighted_x = (80*finger_x/100) + (20*position.x/100);
+                weighted_y = (80*finger_y/100) + (20*position.y/100);
             }
             else {
                 weighted_x = position.x;
@@ -930,11 +930,11 @@
 
             if (position.x != 0) {
                 //convert to pixels
-                
+                NSLog(@"WEIGHTED xy: %.1f and %.1f", weighted_x, weighted_y);
                 //for iphone_7plus
-                float x = position.x*76.8;  //384/5
-                float y = position.y*38.068 + 39; //670/17.6
-                NSLog(@"xyValue: %.1f and %.1f", x, y);
+                float x = weighted_x*76.8;  //384/5
+                float y = weighted_y*38.068 + 39; //670/17.6
+                NSLog(@"weighted pixel: %.1f and %.1f", x, y);
                 //for iphone 7 plus
                 //float x = weighted_x * 45.1765;
                 //float y= weighted_y * 42.9487 + 39;
