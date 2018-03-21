@@ -711,7 +711,7 @@
                     prev_rssi1 = avag_rssi_one;
                     
                     //Translate RSSI value into distance
-                    double txPower = -61;
+                    double txPower = -50;
                     
 //                    if (avag_rssi_one == 0) {
 //                        distance_one = -1.0;
@@ -781,7 +781,7 @@
                      prev_rssi2 = avag_rssi_two;
                      
                      //Translate RSSI value into distance
-                     double txPower = -57;
+                     double txPower = -54;
 
                      distance_two = pow(10,((txPower - avag_rssi_two)/22));
                      //NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_two, distance_two);
@@ -841,7 +841,7 @@
                     prev_rssi3 = avag_rssi_three;
                     
                     //Translate RSSI value into distance
-                    double txPower = -50;
+                    double txPower = -55;
 
                     distance_three = pow(10,((txPower - avag_rssi_three)/22));
                     NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_three, distance_three);
