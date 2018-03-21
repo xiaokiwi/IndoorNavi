@@ -17,9 +17,10 @@
 
 
 @interface ViewController () {
-    NSMutableArray *peripheralDataArray;
-    BabyBluetooth *baby;
+    NSMutableArray * peripheralDataArray;
+    BabyBluetooth * baby;
     TriangulationCalculator * triangulationCalculator;
+    int PowerLevel;
 }
 
 @end
@@ -594,21 +595,26 @@
 //    view4.backgroundColor = [UIColor orangeColor];
 //    [self.view addSubview:view4];
     
-    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(182, 300, 10, 10)];
-    view1.backgroundColor = [UIColor blueColor];
-    //UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me.png"]];
-    //[view1 addSubview:imageView];
-    view1.tag = 1;
-    [self.view addSubview:view1];
+    UIButton * button1 = [[UIButton alloc]initWithFrame:CGRectMake(150, 100, 90, 90)];
+    button1.backgroundColor = [UIColor greenColor];
+    [button1 addTarget:self action:@selector(click1) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button1];
     
+    UIButton * button2 = [[UIButton alloc]initWithFrame:CGRectMake(150, 300, 90, 90)];
+    button2.backgroundColor = [UIColor greenColor];
+    [button2 addTarget:self action:@selector(click2) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button2];
+    
+    UIButton * button3 = [[UIButton alloc]initWithFrame:CGRectMake(150, 500, 90, 90)];
+    button3.backgroundColor = [UIColor greenColor];
+    [button3 addTarget:self action:@selector(click3) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button3];
+
     //bluetooth init
     NSLog(@"viewDidLoad");
     peripheralDataArray = [[NSMutableArray alloc] init];
-    
     //Initialize BabyBluetooth library
     baby = [BabyBluetooth shareBabyBluetooth];
-    //Set bluetooth Delegate (later)
-    [self babyDelegate];
     
     //initialize triangulation calculator
     triangulationCalculator = [[TriangulationCalculator alloc]init];
@@ -618,13 +624,84 @@
     //baby.scanForPeripherals().begin().stop(10);
 }
 
+- (void)click1 {
+    UIImage *backGroundImage = [UIImage imageNamed:@"background.jpg"];
+    self.view.contentMode = UIViewContentModeScaleAspectFill;
+    self.view.layer.contents = (__bridge id _Nullable)(backGroundImage.CGImage);
+
+    PowerLevel = 20;
+    //Set bluetooth Delegate
+    [self babyDelegate];
+    
+    //add a new point
+    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(182, 300, 10, 10)];
+    view1.backgroundColor = [UIColor greenColor];
+    //UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me.png"]];
+    //[view1 addSubview:imageView];
+    view1.tag = 1;
+    [self.view addSubview:view1];
+    //Remove all button
+    for( UIButton *v in self.view.subviews ) {
+        if( [v isKindOfClass:[UIButton class]] ) {
+            [v removeFromSuperview];
+        }
+    }
+}
+
+- (void)click2 {
+    UIImage *backGroundImage = [UIImage imageNamed:@"background.jpg"];
+    self.view.contentMode = UIViewContentModeScaleAspectFill;
+    self.view.layer.contents = (__bridge id _Nullable)(backGroundImage.CGImage);
+    
+    PowerLevel = 30;
+    //Set bluetooth Delegate
+    [self babyDelegate];
+    
+    //add a new point
+    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(182, 300, 10, 10)];
+    view1.backgroundColor = [UIColor orangeColor];
+    //UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me.png"]];
+    //[view1 addSubview:imageView];
+    view1.tag = 1;
+    [self.view addSubview:view1];
+    //Remove all button
+    for( UIButton *v in self.view.subviews ) {
+        if( [v isKindOfClass:[UIButton class]] ) {
+            [v removeFromSuperview];
+        }
+    }
+}
+
+- (void)click3 {
+    UIImage *backGroundImage = [UIImage imageNamed:@"background.jpg"];
+    self.view.contentMode = UIViewContentModeScaleAspectFill;
+    self.view.layer.contents = (__bridge id _Nullable)(backGroundImage.CGImage);
+    
+    PowerLevel = 50;
+    //Set bluetooth Delegate
+    [self babyDelegate];
+    
+    //add a new point
+    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(182, 300, 10, 10)];
+    view1.backgroundColor = [UIColor redColor];
+    //UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me.png"]];
+    //[view1 addSubview:imageView];
+    view1.tag = 1;
+    [self.view addSubview:view1];
+    //Remove all button
+    for( UIButton *v in self.view.subviews ) {
+        if( [v isKindOfClass:[UIButton class]] ) {
+            [v removeFromSuperview];
+        }
+    }
+}
+
 #pragma mark -Bluetooth config and control
 
 //Bluetooth Delegate setting
 -(void)babyDelegate{
 
     __weak typeof(self) weakSelf = self;
-    
     // database opened
     DataBaseHandle * dataBaseHandle = [DataBaseHandle dataBaseHandleWithDataBaseName:@"Rssi2DB"];
 
@@ -663,7 +740,7 @@
         if ([peripheral.name isEqual:@"BrtBeacon01"]) {
             if (ignore_count > 50 && [RSSI intValue] != 127) {
                 
-                if ( [rssi_array_one count] < 30 ) {
+                if ( [rssi_array_one count] < PowerLevel ) {
                     [rssi_array_one addObject:RSSI];
                     //NSLog(@"RSSI:%@", RSSI);
                 }
@@ -674,7 +751,7 @@
                     for (i = 0, count = [rssi_array_one count]; i < count; i = i+1) {
                         container = container + [[rssi_array_one objectAtIndex:i] intValue];
                     }
-                    float u = container/30;
+                    float u = container/PowerLevel;
                     float container2 = 0;
                     
                     for (i = 0, count = [rssi_array_one count]; i < count; i = i+1) {
@@ -683,7 +760,7 @@
                         //NSLog(@"temp:%.lf pow:%.1f", temp, pow(temp,2));
                         container2 = container2 + pow(temp,2);
                     }
-                    float v = pow((container2/29),0.5);
+                    float v = pow(container2/(PowerLevel-1),0.5);
                     //NSLog(@"u:%.lf  v:%.1f", u, v);
                     
                     float rssi_sum = 0;
@@ -733,7 +810,7 @@
         else if ([peripheral.name isEqual:@"BrtBeacon02"]) {
              if (ignore_count > 50 && [RSSI intValue] != 127) {
 
-                 if ( [rssi_array_two count] < 30 ) {
+                 if ( [rssi_array_two count] < PowerLevel ) {
                      [rssi_array_two addObject:RSSI];
                      //NSLog(@"RSSI:%@", RSSI);
                  }
@@ -744,7 +821,7 @@
                      for (i = 0, count = [rssi_array_two count]; i < count; i = i+1) {
                          container = container + [[rssi_array_two objectAtIndex:i] intValue];
                      }
-                     float u = container/30;
+                     float u = container/PowerLevel;
                      float container2 = 0;
                      
                      for (i = 0, count = [rssi_array_two count]; i < count; i = i+1) {
@@ -753,7 +830,7 @@
                          //NSLog(@"temp:%.lf pow:%.1f", temp, pow(temp,2));
                          container2 = container2 + pow(temp,2);
                      }
-                     float v = pow((container2/29),0.5);
+                     float v = pow((container2/(PowerLevel-1)),0.5);
                      //NSLog(@"u:%.lf  v:%.1f", u, v);
                      
                      float rssi_sum = 0;
@@ -793,7 +870,7 @@
         else if ([peripheral.name isEqual:@"BrtBeacon03"]) {
 
             if (ignore_count > 50 && [RSSI intValue] != 127) {
-                if ( [rssi_array_three count] < 30 ) {
+                if ( [rssi_array_three count] < PowerLevel ) {
                     [rssi_array_three addObject:RSSI];
                    // NSLog(@"RSSI:%@", RSSI);
                 }
@@ -804,7 +881,7 @@
                     for (i = 0, count = [rssi_array_three count]; i < count; i = i+1) {
                         container = container + [[rssi_array_three objectAtIndex:i] intValue];
                     }
-                    float u = container/30;
+                    float u = container/PowerLevel;
                     float container2 = 0;
                     
                     for (i = 0, count = [rssi_array_three count]; i < count; i = i+1) {
@@ -813,7 +890,7 @@
                         //NSLog(@"temp:%.lf pow:%.1f", temp, pow(temp,2));
                         container2 = container2 + pow(temp,2);
                     }
-                    float v = pow((container2/29),0.5);
+                    float v = pow((container2/(PowerLevel-1)),0.5);
                     //NSLog(@"u:%.lf  v:%.1f", u, v);
                     
                     float rssi_sum = 0;
@@ -859,59 +936,64 @@
             //NSLog(@" Beacon1: %d, Beacon2: %d, Beacon3: %d With Position = (%f, %f) ", avag_rssi_one, avag_rssi_two, avag_rssi_three, position.x, position.y);
             NSLog(@" Beacon1: %d and %.2f, Beacon2: %d and %.2f, Beacon3: %d and %.2f", avag_rssi_one, distance_one, avag_rssi_two, distance_two, avag_rssi_three, distance_three);
             
-            //Fingerprinting Algorithm
-            NSMutableArray * xy_one = [dataBaseHandle selectOneByrssi:1 value:avag_rssi_one];
-            NSMutableArray * xy_two = [dataBaseHandle selectOneByrssi:2 value:avag_rssi_two];
-            NSMutableArray * xy_three = [dataBaseHandle selectOneByrssi:3 value:avag_rssi_three];
+            float finger_x = 0;
+            float finger_y = 0;
             
-            NSMutableDictionary * xy_dict = [NSMutableDictionary dictionary];
-            
-            for (NSString *string in xy_one) {
-                //if xy is already in the dictionary
-                if ([xy_dict objectForKey:string]) {
-                    [xy_dict setObject:@([[xy_dict objectForKey:string] integerValue] + avag_rssi_one + 127) forKey:string];
-                }
-                //if xy is not in the dictionary
-                else {
-                    [xy_dict setObject:@(avag_rssi_one) forKey:string];
-                }
-            }
-            for (NSString *string in xy_two) {
-                if ([xy_dict objectForKey:string]) {
-                    [xy_dict setObject:@([[xy_dict objectForKey:string] integerValue] + avag_rssi_two + 127) forKey:string];
-                }
-                else {
-                    [xy_dict setObject:@(avag_rssi_two) forKey:string];
-                }
-            }
-            for (NSString *string in xy_three) {
-                if ([xy_dict objectForKey:string]) {
-                    [xy_dict setObject:@([[xy_dict objectForKey:string] integerValue] + avag_rssi_three + 127) forKey:string];
-                }
-                else {
-                    [xy_dict setObject:@(avag_rssi_three) forKey:string];
-                }
-            }
-            //NSLog(@"%@", xy_dict);
-            
-            NSArray * Sorted_XY = [xy_dict keysSortedByValueUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            //if the lowest Power Level is chose, Fingerprinting will not be implemented
+            if (PowerLevel != 20) {
+                //Fingerprinting Algorithm
+                NSMutableArray * xy_one = [dataBaseHandle selectOneByrssi:1 value:avag_rssi_one];
+                NSMutableArray * xy_two = [dataBaseHandle selectOneByrssi:2 value:avag_rssi_two];
+                NSMutableArray * xy_three = [dataBaseHandle selectOneByrssi:3 value:avag_rssi_three];
                 
-                if ([obj1 integerValue] > [obj2 integerValue]) {
-                    return (NSComparisonResult)NSOrderedAscending;
-                }
-                if ([obj1 integerValue] < [obj2 integerValue]) {
-                    return (NSComparisonResult)NSOrderedDescending;
-                }
+                NSMutableDictionary * xy_dict = [NSMutableDictionary dictionary];
                 
-                return (NSComparisonResult)NSOrderedSame;
-            }];
-            
-            NSArray * Seperated_XY = [[Sorted_XY firstObject] componentsSeparatedByString:@" "];
-            float finger_x = [[Seperated_XY objectAtIndex:0] floatValue];
-            float finger_y = [[Seperated_XY objectAtIndex:1] floatValue];
-            
-            //NSMutableArray * result = [dataBaseHandle selectOneByrssi:1 value:-65];
-            NSLog(@"xyValue: %.1f and %.1f", finger_x, finger_y);
+                for (NSString *string in xy_one) {
+                    //if xy is already in the dictionary
+                    if ([xy_dict objectForKey:string]) {
+                        [xy_dict setObject:@([[xy_dict objectForKey:string] integerValue] + avag_rssi_one + 127) forKey:string];
+                    }
+                    //if xy is not in the dictionary
+                    else {
+                        [xy_dict setObject:@(avag_rssi_one) forKey:string];
+                    }
+                }
+                for (NSString *string in xy_two) {
+                    if ([xy_dict objectForKey:string]) {
+                        [xy_dict setObject:@([[xy_dict objectForKey:string] integerValue] + avag_rssi_two + 127) forKey:string];
+                    }
+                    else {
+                        [xy_dict setObject:@(avag_rssi_two) forKey:string];
+                    }
+                }
+                for (NSString *string in xy_three) {
+                    if ([xy_dict objectForKey:string]) {
+                        [xy_dict setObject:@([[xy_dict objectForKey:string] integerValue] + avag_rssi_three + 127) forKey:string];
+                    }
+                    else {
+                        [xy_dict setObject:@(avag_rssi_three) forKey:string];
+                    }
+                }
+                //NSLog(@"%@", xy_dict);
+                
+                NSArray * Sorted_XY = [xy_dict keysSortedByValueUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                    
+                    if ([obj1 integerValue] > [obj2 integerValue]) {
+                        return (NSComparisonResult)NSOrderedAscending;
+                    }
+                    if ([obj1 integerValue] < [obj2 integerValue]) {
+                        return (NSComparisonResult)NSOrderedDescending;
+                    }
+                    return (NSComparisonResult)NSOrderedSame;
+                }];
+                
+                NSArray * Seperated_XY = [[Sorted_XY firstObject] componentsSeparatedByString:@" "];
+                finger_x = [[Seperated_XY objectAtIndex:0] floatValue];
+                finger_y = [[Seperated_XY objectAtIndex:1] floatValue];
+                
+                //NSMutableArray * result = [dataBaseHandle selectOneByrssi:1 value:-65];
+                NSLog(@"xyValue: %.1f and %.1f", finger_x, finger_y);
+            }
 
             //Weighted fused results from both Algorithm
             float weighted_x;
