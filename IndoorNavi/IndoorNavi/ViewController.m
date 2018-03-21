@@ -41,46 +41,538 @@
     DataBaseHandle * dataBaseHandle = [DataBaseHandle dataBaseHandleWithDataBaseName:@"RssiDB"];
 
     // Insert Data (examples)
-    RssiEntity * entity = [[RssiEntity alloc] init];
-    entity.number = 1 ;
-    entity.x = 100;
-    entity.y = 321;
-    entity.beacon = 1;
-    entity.value = -65;
-
+    RssiEntity * entity1 = [[RssiEntity alloc] init];
+    entity1.number = 1;
+    entity1.x = 2;
+    entity1.y = 0;
+    entity1.beacon = 1;
+    entity1.value = -60;
+    
     RssiEntity * entity2 = [[RssiEntity alloc] init];
-    entity2.number = 2 ;
-    entity2.x = 100;
-    entity2.y = 321;
+    entity2.number = 2;
+    entity2.x = 2;
+    entity2.y = 0;
     entity2.beacon = 2;
-    entity2.value = -67;
+    entity2.value = -77;
     
     RssiEntity * entity3 = [[RssiEntity alloc] init];
     entity3.number = 3 ;
-    entity3.x = 14;
-    entity3.y = 41;
+    entity3.x = 2;
+    entity3.y = 0;
     entity3.beacon = 3;
-    entity3.value = -66;
-
+    entity3.value = -74;
+    
     RssiEntity * entity4 = [[RssiEntity alloc] init];
     entity4.number = 4 ;
-    entity4.x = 133;
-    entity4.y = 111;
-    entity4.beacon = 2;
-    entity4.value = -67;
+    entity4.x = 3.8;
+    entity4.y = 0;
+    entity4.beacon = 1;
+    entity4.value = -63;
     
     RssiEntity * entity5 = [[RssiEntity alloc] init];
-    entity5.number = 5 ;
-    entity5.x = 13;
-    entity5.y = 11;
+    entity5.number = 5;
+    entity5.x = 3.8;
+    entity5.y = 0;
     entity5.beacon = 2;
-    entity5.value = -68;
+    entity5.value = -79;
     
-    [dataBaseHandle insertDataWithKeyValues:entity];
+    RssiEntity * entity6 = [[RssiEntity alloc] init];
+    entity6.number = 6 ;
+    entity6.x = 3.8;
+    entity6.y = 0;
+    entity6.beacon = 3;
+    entity6.value = -73;
+    
+    RssiEntity * entity7 = [[RssiEntity alloc] init];
+    entity7.number = 7;
+    entity7.x = 2;
+    entity7.y = 1.9;
+    entity7.beacon = 1;
+    entity7.value = -56;
+    
+    RssiEntity * entity8 = [[RssiEntity alloc] init];
+    entity8.number = 8 ;
+    entity8.x = 2;
+    entity8.y = 1.9;
+    entity8.beacon = 2;
+    entity8.value = -77;
+    
+    RssiEntity * entity9 = [[RssiEntity alloc] init];
+    entity9.number = 9 ;
+    entity9.x = 2;
+    entity9.y = 1.9;
+    entity9.beacon = 3;
+    entity9.value = -74;
+    
+    RssiEntity * entity10 = [[RssiEntity alloc] init];
+    entity10.number = 10 ;
+    entity10.x = 3.8;
+    entity10.y = 1.9;
+    entity10.beacon = 1;
+    entity10.value = -57;
+    
+    RssiEntity * entity11 = [[RssiEntity alloc] init];
+    entity11.number = 11;
+    entity11.x = 3.8;
+    entity11.y = 1.9;
+    entity11.beacon = 2;
+    entity11.value = -78;
+    
+    RssiEntity * entity12 = [[RssiEntity alloc] init];
+    entity12.number = 12 ;
+    entity12.x = 3.8;
+    entity12.y = 1.9;
+    entity12.beacon = 3;
+    entity12.value = -72;
+    
+    RssiEntity * entity13 = [[RssiEntity alloc] init];
+    entity13.number = 13 ;
+    entity13.x = 2;
+    entity13.y = 3.7;
+    entity13.beacon = 1;
+    entity13.value = -63;
+    
+    RssiEntity * entity14 = [[RssiEntity alloc] init];
+    entity14.number = 14;
+    entity14.x = 2;
+    entity14.y = 3.7;
+    entity14.beacon = 2;
+    entity14.value = -72;
+    
+    RssiEntity * entity15 = [[RssiEntity alloc] init];
+    entity15.number = 15 ;
+    entity15.x = 2;
+    entity15.y = 3.7;
+    entity15.beacon = 3;
+    entity15.value = -67;
+    
+    
+    RssiEntity * entity16 = [[RssiEntity alloc] init];
+    entity16.number = 16 ;
+    entity16.x = 3.8;
+    entity16.y = 3.7;
+    entity16.beacon = 1;
+    entity16.value = -61;
+    
+    RssiEntity * entity17 = [[RssiEntity alloc] init];
+    entity17.number = 17;
+    entity17.x = 3.8;
+    entity17.y = 3.7;
+    entity17.beacon = 2;
+    entity17.value = -75;
+    
+    RssiEntity * entity18 = [[RssiEntity alloc] init];
+    entity18.number = 18 ;
+    entity18.x = 3.8;
+    entity18.y = 3.7;
+    entity18.beacon = 3;
+    entity18.value = -70;
+    
+    
+    RssiEntity * entity19 = [[RssiEntity alloc] init];
+    entity19.number = 19 ;
+    entity19.x = 2;
+    entity19.y = 5.5;
+    entity19.beacon = 1;
+    entity19.value = -66;
+    
+    RssiEntity * entity20 = [[RssiEntity alloc] init];
+    entity20.number = 20;
+    entity20.x = 2;
+    entity20.y = 5.5;
+    entity20.beacon = 2;
+    entity20.value = -77;
+    
+    RssiEntity * entity21 = [[RssiEntity alloc] init];
+    entity21.number = 21;
+    entity21.x = 2;
+    entity21.y = 5.5;
+    entity21.beacon = 3;
+    entity21.value = -67;
+    
+    RssiEntity * entity22 = [[RssiEntity alloc] init];
+    entity22.number = 22 ;
+    entity22.x = 3.8;
+    entity22.y = 5.5;
+    entity22.beacon = 1;
+    entity22.value = -63;
+    
+    RssiEntity * entity23 = [[RssiEntity alloc] init];
+    entity23.number = 23;
+    entity23.x = 3.8;
+    entity23.y = 5.5;
+    entity23.beacon = 2;
+    entity23.value = -75;
+    
+    RssiEntity * entity24 = [[RssiEntity alloc] init];
+    entity24.number = 24;
+    entity24.x = 3.8;
+    entity24.y = 5.5;
+    entity24.beacon = 3;
+    entity24.value = -60;
+    
+    RssiEntity * entity25 = [[RssiEntity alloc] init];
+    entity25.number = 25 ;
+    entity25.x = 2;
+    entity25.y = 7.3;
+    entity25.beacon = 1;
+    entity25.value = -70;
+    
+    RssiEntity * entity26 = [[RssiEntity alloc] init];
+    entity26.number = 26;
+    entity26.x = 2;
+    entity26.y = 7.3;
+    entity26.beacon = 2;
+    entity26.value = -73;
+    
+    RssiEntity * entity27 = [[RssiEntity alloc] init];
+    entity27.number = 27;
+    entity27.x = 2;
+    entity27.y = 7.3;
+    entity27.beacon = 3;
+    entity27.value = -62;
+    
+    RssiEntity * entity28 = [[RssiEntity alloc] init];
+    entity28.number = 28 ;
+    entity28.x = 3.8;
+    entity28.y = 7.3;
+    entity28.beacon = 1;
+    entity28.value = -69;
+    
+    RssiEntity * entity29 = [[RssiEntity alloc] init];
+    entity29.number = 29;
+    entity29.x = 3.8;
+    entity29.y = 7.3;
+    entity29.beacon = 2;
+    entity29.value = -72;
+    
+    RssiEntity * entity30 = [[RssiEntity alloc] init];
+    entity30.number = 30;
+    entity30.x = 3.8;
+    entity30.y = 7.3;
+    entity30.beacon = 3;
+    entity30.value = -58;
+    
+    RssiEntity * entity31 = [[RssiEntity alloc] init];
+    entity31.number = 31 ;
+    entity31.x = 2;
+    entity31.y = 9.1;
+    entity31.beacon = 1;
+    entity31.value = -70;
+    
+    RssiEntity * entity32 = [[RssiEntity alloc] init];
+    entity32.number = 32;
+    entity32.x = 2;
+    entity32.y = 9.1;
+    entity32.beacon = 2;
+    entity32.value = -70;
+    
+    RssiEntity * entity33 = [[RssiEntity alloc] init];
+    entity33.number = 33;
+    entity33.x = 2;
+    entity33.y = 9.1;
+    entity33.beacon = 3;
+    entity33.value = -63;
+    RssiEntity * entity34 = [[RssiEntity alloc] init];
+    entity34.number = 34 ;
+    entity34.x = 3.8;
+    entity34.y = 9.1;
+    entity34.beacon = 1;
+    entity34.value = -71;
+    
+    RssiEntity * entity35 = [[RssiEntity alloc] init];
+    entity35.number = 35;
+    entity35.x = 3.8;
+    entity35.y = 9.1;
+    entity35.beacon = 2;
+    entity35.value = -71;
+    
+    RssiEntity * entity36 = [[RssiEntity alloc] init];
+    entity36.number = 36;
+    entity36.x = 3.8;
+    entity36.y = 9.1;
+    entity36.beacon = 3;
+    entity36.value = -53;
+    
+    RssiEntity * entity37 = [[RssiEntity alloc] init];
+    entity37.number = 37 ;
+    entity37.x = 2;
+    entity37.y = 10.9;
+    entity37.beacon = 1;
+    entity37.value = -68;
+    
+    RssiEntity * entity38 = [[RssiEntity alloc] init];
+    entity38.number = 38;
+    entity38.x = 2;
+    entity38.y = 10.9;
+    entity38.beacon = 2;
+    entity38.value = -63;
+    
+    RssiEntity * entity39 = [[RssiEntity alloc] init];
+    entity39.number = 39;
+    entity39.x = 2;
+    entity39.y = 10.9;
+    entity39.beacon = 3;
+    entity39.value = -66;
+    RssiEntity * entity40= [[RssiEntity alloc] init];
+    entity40.number = 40 ;
+    entity40.x = 3.8;
+    entity40.y = 10.9;
+    entity40.beacon = 1;
+    entity40.value = -69;
+    
+    RssiEntity * entity41 = [[RssiEntity alloc] init];
+    entity41.number = 41;
+    entity41.x = 3.8;
+    entity41.y = 10.9;
+    entity41.beacon = 2;
+    entity41.value = -66;
+    
+    RssiEntity * entity42 = [[RssiEntity alloc] init];
+    entity42.number = 42;
+    entity42.x = 3.8;
+    entity42.y = 10.9;
+    entity42.beacon = 3;
+    entity42.value = -68;
+    
+    RssiEntity * entity43= [[RssiEntity alloc] init];
+    entity43.number = 43 ;
+    entity43.x = 2;
+    entity43.y = 12.7;
+    entity43.beacon = 1;
+    entity43.value = -69;
+    
+    RssiEntity * entity44 = [[RssiEntity alloc] init];
+    entity44.number = 44;
+    entity44.x = 2;
+    entity44.y = 12.7;
+    entity44.beacon = 2;
+    entity44.value = -65;
+    
+    RssiEntity * entity45 = [[RssiEntity alloc] init];
+    entity45.number = 45;
+    entity45.x = 2;
+    entity45.y = 12.7;
+    entity45.beacon = 3;
+    entity45.value = -68;
+    
+    RssiEntity * entity46 = [[RssiEntity alloc] init];
+    entity46.number = 46 ;
+    entity46.x = 3.8;
+    entity46.y = 12.7;
+    entity46.beacon = 1;
+    entity46.value = -68;
+    
+    RssiEntity * entity47 = [[RssiEntity alloc] init];
+    entity47.number = 47;
+    entity47.x = 3.8;
+    entity47.y = 12.7;
+    entity47.beacon = 2;
+    entity47.value = -70;
+    
+    RssiEntity * entity48 = [[RssiEntity alloc] init];
+    entity48.number = 48;
+    entity48.x = 3.8;
+    entity48.y = 12.7;
+    entity48.beacon = 3;
+    entity48.value = -70;
+    
+    RssiEntity * entity49 = [[RssiEntity alloc] init];
+    entity49.number = 49 ;
+    entity49.x = 2;
+    entity49.y = 14.5;
+    entity49.beacon = 1;
+    entity49.value = -75;
+    
+    RssiEntity * entity50 = [[RssiEntity alloc] init];
+    entity50.number = 50;
+    entity50.x = 2;
+    entity50.y = 14.5;
+    entity50.beacon = 2;
+    entity50.value = -61;
+    
+    RssiEntity * entity51 = [[RssiEntity alloc] init];
+    entity51.number = 51;
+    entity51.x = 2;
+    entity51.y = 14.5;
+    entity51.beacon = 3;
+    entity51.value = -69;
+    
+    RssiEntity * entity52 = [[RssiEntity alloc] init];
+    entity52.number = 52 ;
+    entity52.x = 3.8;
+    entity52.y = 14.5;
+    entity52.beacon = 1;
+    entity52.value = -70;
+    
+    RssiEntity * entity53 = [[RssiEntity alloc] init];
+    entity53.number = 53;
+    entity53.x = 3.8;
+    entity53.y = 14.5;
+    entity53.beacon = 2;
+    entity53.value = -62;
+    
+    RssiEntity * entity54 = [[RssiEntity alloc] init];
+    entity54.number = 54;
+    entity54.x = 3.8;
+    entity54.y = 14.5;
+    entity54.beacon = 3;
+    entity54.value = -68;
+    
+    RssiEntity * entity55 = [[RssiEntity alloc] init];
+    entity55.number = 55 ;
+    entity55.x = 2;
+    entity55.y = 16.3;
+    entity55.beacon = 1;
+    entity55.value = -76;
+    
+    RssiEntity * entity56 = [[RssiEntity alloc] init];
+    entity56.number = 56;
+    entity56.x = 2;
+    entity56.y = 16.3;
+    entity56.beacon = 2;
+    entity56.value = -57;
+    
+    RssiEntity * entity57 = [[RssiEntity alloc] init];
+    entity57.number = 57;
+    entity57.x = 2;
+    entity57.y = 16.3;
+    entity57.beacon = 3;
+    entity57.value = -72;
+    
+    RssiEntity * entity58 = [[RssiEntity alloc] init];
+    entity58.number = 58 ;
+    entity58.x = 3.8;
+    entity58.y = 16.3;
+    entity58.beacon = 1;
+    entity58.value = -73;
+    
+    RssiEntity * entity59 = [[RssiEntity alloc] init];
+    entity59.number = 59;
+    entity59.x = 3.8;
+    entity59.y = 16.3;
+    entity59.beacon = 2;
+    entity59.value = -64;
+    
+    RssiEntity * entity60 = [[RssiEntity alloc] init];
+    entity60.number = 60;
+    entity60.x = 3.8;
+    entity60.y = 16.3;
+    entity60.beacon = 3;
+    entity60.value = -68;
+    
+    RssiEntity * entity61 = [[RssiEntity alloc] init];
+    entity61.number = 61 ;
+    entity61.x = 2;
+    entity61.y = 17.6;
+    entity61.beacon = 1;
+    entity61.value = -77;
+    
+    RssiEntity * entity62 = [[RssiEntity alloc] init];
+    entity62.number = 62;
+    entity62.x = 2;
+    entity62.y = 17.6;
+    entity62.beacon = 2;
+    entity62.value = -59;
+    
+    RssiEntity * entity63 = [[RssiEntity alloc] init];
+    entity63.number = 63;
+    entity63.x = 2;
+    entity63.y = 17.6;
+    entity63.beacon = 3;
+    entity63.value = -75;
+    
+    RssiEntity * entity64 = [[RssiEntity alloc] init];
+    entity64.number = 64 ;
+    entity64.x = 3.8;
+    entity64.y = 17.6;
+    entity64.beacon = 1;
+    entity64.value = -74;
+    
+    RssiEntity * entity65 = [[RssiEntity alloc] init];
+    entity65.number = 65;
+    entity65.x = 3.8;
+    entity65.y = 17.6;
+    entity65.beacon = 2;
+    entity65.value = -65;
+    
+    RssiEntity * entity66 = [[RssiEntity alloc] init];
+    entity66.number = 66;
+    entity66.x = 3.8;
+    entity66.y = 17.6;
+    entity66.beacon = 3;
+    entity66.value = -72;
+
+    
+    [dataBaseHandle insertDataWithKeyValues:entity1];
     [dataBaseHandle insertDataWithKeyValues:entity2];
     [dataBaseHandle insertDataWithKeyValues:entity3];
     [dataBaseHandle insertDataWithKeyValues:entity4];
     [dataBaseHandle insertDataWithKeyValues:entity5];
+    [dataBaseHandle insertDataWithKeyValues:entity6];
+    [dataBaseHandle insertDataWithKeyValues:entity7];
+    [dataBaseHandle insertDataWithKeyValues:entity8];
+    [dataBaseHandle insertDataWithKeyValues:entity9];
+    [dataBaseHandle insertDataWithKeyValues:entity10];
+    [dataBaseHandle insertDataWithKeyValues:entity11];
+    [dataBaseHandle insertDataWithKeyValues:entity12];
+    [dataBaseHandle insertDataWithKeyValues:entity13];
+    [dataBaseHandle insertDataWithKeyValues:entity14];
+    [dataBaseHandle insertDataWithKeyValues:entity15];
+    [dataBaseHandle insertDataWithKeyValues:entity16];
+    [dataBaseHandle insertDataWithKeyValues:entity17];
+    [dataBaseHandle insertDataWithKeyValues:entity18];
+    [dataBaseHandle insertDataWithKeyValues:entity19];
+    [dataBaseHandle insertDataWithKeyValues:entity20];
+    [dataBaseHandle insertDataWithKeyValues:entity21];
+    [dataBaseHandle insertDataWithKeyValues:entity22];
+    [dataBaseHandle insertDataWithKeyValues:entity23];
+    [dataBaseHandle insertDataWithKeyValues:entity24];
+    [dataBaseHandle insertDataWithKeyValues:entity25];
+    [dataBaseHandle insertDataWithKeyValues:entity26];
+    [dataBaseHandle insertDataWithKeyValues:entity27];
+    [dataBaseHandle insertDataWithKeyValues:entity28];
+    [dataBaseHandle insertDataWithKeyValues:entity29];
+    [dataBaseHandle insertDataWithKeyValues:entity30];
+    [dataBaseHandle insertDataWithKeyValues:entity31];
+    [dataBaseHandle insertDataWithKeyValues:entity32];
+    [dataBaseHandle insertDataWithKeyValues:entity33];
+    [dataBaseHandle insertDataWithKeyValues:entity34];
+    [dataBaseHandle insertDataWithKeyValues:entity35];
+    [dataBaseHandle insertDataWithKeyValues:entity36];
+    [dataBaseHandle insertDataWithKeyValues:entity37];
+    [dataBaseHandle insertDataWithKeyValues:entity38];
+    [dataBaseHandle insertDataWithKeyValues:entity39];
+    [dataBaseHandle insertDataWithKeyValues:entity40];
+    [dataBaseHandle insertDataWithKeyValues:entity41];
+    [dataBaseHandle insertDataWithKeyValues:entity42];
+    [dataBaseHandle insertDataWithKeyValues:entity43];
+    [dataBaseHandle insertDataWithKeyValues:entity44];
+    [dataBaseHandle insertDataWithKeyValues:entity45];
+    [dataBaseHandle insertDataWithKeyValues:entity46];
+    [dataBaseHandle insertDataWithKeyValues:entity47];
+    [dataBaseHandle insertDataWithKeyValues:entity48];
+    [dataBaseHandle insertDataWithKeyValues:entity49];
+    [dataBaseHandle insertDataWithKeyValues:entity50];
+    [dataBaseHandle insertDataWithKeyValues:entity51];
+    [dataBaseHandle insertDataWithKeyValues:entity52];
+    [dataBaseHandle insertDataWithKeyValues:entity53];
+    [dataBaseHandle insertDataWithKeyValues:entity54];
+    [dataBaseHandle insertDataWithKeyValues:entity55];
+    [dataBaseHandle insertDataWithKeyValues:entity56];
+    [dataBaseHandle insertDataWithKeyValues:entity57];
+    [dataBaseHandle insertDataWithKeyValues:entity58];
+    [dataBaseHandle insertDataWithKeyValues:entity59];
+    [dataBaseHandle insertDataWithKeyValues:entity60];
+    [dataBaseHandle insertDataWithKeyValues:entity61];
+    [dataBaseHandle insertDataWithKeyValues:entity62];
+    [dataBaseHandle insertDataWithKeyValues:entity63];
+    [dataBaseHandle insertDataWithKeyValues:entity64];
+    [dataBaseHandle insertDataWithKeyValues:entity65];
+    [dataBaseHandle insertDataWithKeyValues:entity66];
+    
+    //NSMutableArray * result = [dataBaseHandle selectOneByrssi:1 value:-65];
+    //NSLog(@"%@", result);
     
     // Update Data
     //[dataBaseHandle updateRssi:-80 x_value:100 y_value:321];
@@ -89,6 +581,8 @@
     // Delete one of data
     //[dataBaseHandle deleteOneRssi:100 y_value:321];
 
+    NSLog(@"%d", [[dataBaseHandle selectAllKeyValues] count]);
+    
     // Delete the table
     //[dataBaseHandle dropTable];
 
@@ -167,9 +661,11 @@
     //Handle Delegate
     [baby setBlockOnDiscoverToPeripherals:^(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI) {
         //Searching for different BrtBeacon
-                  //  NSLog(@"%@", peripheral.name);
+
+        //NSLog(@"%@",peripheral.name);
         if ([peripheral.name isEqual:@"BrtBeacon01"]) {
             if (ignore_count > 50 && [RSSI intValue] != 127) {
+                
                 if ( [rssi_array_one count] < 30 ) {
                     [rssi_array_one addObject:RSSI];
                     //NSLog(@"RSSI:%@", RSSI);
@@ -239,6 +735,7 @@
         }
         else if ([peripheral.name isEqual:@"BrtBeacon02"]) {
              if (ignore_count > 50 && [RSSI intValue] != 127) {
+
                  if ( [rssi_array_two count] < 30 ) {
                      [rssi_array_two addObject:RSSI];
                      //NSLog(@"RSSI:%@", RSSI);
@@ -285,7 +782,7 @@
                      
                      //Translate RSSI value into distance
                      double txPower = -57;
- 
+
                      distance_two = pow(10,((txPower - avag_rssi_two)/22));
                      //NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_two, distance_two);
                      [rssi_array_two removeAllObjects];
@@ -347,7 +844,8 @@
                     double txPower = -50;
 
                     distance_three = pow(10,((txPower - avag_rssi_three)/22));
-                   // NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_three, distance_three);
+                    NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_three, distance_three);
+
                     [rssi_array_three removeAllObjects];
                     flag = 1;
                 }
