@@ -17,7 +17,7 @@
         beaconPosition[1].x=0;
         beaconPosition[1].y=17.6;
         beaconPosition[2].x=5;
-        beaconPosition[2].y=8.8;
+        beaconPosition[2].y=8.7;
     }
     return self;
 }
