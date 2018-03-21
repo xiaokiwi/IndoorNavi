@@ -33,7 +33,7 @@ static sqlite3 * db ;
     
     if (result == SQLITE_OK) {
         //autoincrement used for primary key (number);
-        NSString * sqliteStr = @"create table if not exists RssiList(number integer primary key autoincrement, x integer, y integer, beacon integer, value integer)";
+        NSString * sqliteStr = @"create table if not exists RssiList(number integer primary key autoincrement, x double, y double, beacon integer, value integer)";
         // execute command
         sqlite3_exec(db, [sqliteStr UTF8String], NULL, NULL, NULL);
     }
@@ -88,13 +88,13 @@ static sqlite3 * db ;
     
     // verify command
     int result = sqlite3_prepare_v2(db, [sqlStr UTF8String], -1, &stmt, NULL);
-    
+
     if (result == SQLITE_OK) {
         NSLog(@"Inserted data");
         // Bind data
         sqlite3_bind_int(stmt, 1, (int)entity.number);
-        sqlite3_bind_int(stmt, 2, (int)entity.x);
-        sqlite3_bind_int(stmt, 3, (int)entity.y);
+        sqlite3_bind_double(stmt, 2, (double)entity.x);
+        sqlite3_bind_double(stmt, 3, (double)entity.y);
         sqlite3_bind_int(stmt, 4, (int)entity.beacon);
         sqlite3_bind_int(stmt, 5, (int)entity.value);
 
@@ -110,7 +110,7 @@ static sqlite3 * db ;
 }
 
 // Update data by x and y
--(void)updateRssi:(NSInteger)rssi x_value:(NSInteger)x_value y_value:(NSInteger)y_value
+-(void)updateRssi:(NSInteger)rssi x_value:(double)x_value y_value:(double)y_value
 {
     [self openDataBase];
 
@@ -123,8 +123,8 @@ static sqlite3 * db ;
     if (result == SQLITE_OK) {
 
         sqlite3_bind_int(stmt, 1, (int)rssi);
-        sqlite3_bind_int(stmt, 2, (int)x_value);
-        sqlite3_bind_int(stmt, 3, (int)y_value);
+        sqlite3_bind_double(stmt, 2, (double)x_value);
+        sqlite3_bind_double(stmt, 3, (double)y_value);
 
         sqlite3_step(stmt);
     }
@@ -150,10 +150,11 @@ static sqlite3 * db ;
             [mArr addObject:entity];
             
             entity.number = sqlite3_column_int(stmt, 0);
-            entity.x = sqlite3_column_int(stmt, 1);
-            entity.y = sqlite3_column_int(stmt, 2);
+            entity.x = sqlite3_column_double(stmt, 1);
+            entity.y = sqlite3_column_double(stmt, 2);
             entity.beacon = sqlite3_column_int(stmt, 3);
             entity.value = sqlite3_column_int(stmt, 4);
+            NSLog(@"%.1f",entity.x);
         }
     }
     sqlite3_finalize(stmt);
@@ -182,8 +183,8 @@ static sqlite3 * db ;
         
         while (sqlite3_step(stmt) == SQLITE_ROW) {
             entity.number = sqlite3_column_int(stmt, 0);
-            entity.x = sqlite3_column_int(stmt, 1);
-            entity.y = sqlite3_column_int(stmt, 2);
+            entity.x = sqlite3_column_double(stmt, 1);
+            entity.y = sqlite3_column_double(stmt, 2);
             entity.beacon = sqlite3_column_int(stmt, 3);
             entity.value = sqlite3_column_int(stmt, 4);
         }
@@ -216,9 +217,9 @@ static sqlite3 * db ;
         sqlite3_bind_int(stmt, 3, (int)(value+1));
         
         while (sqlite3_step(stmt) == SQLITE_ROW) {
-            entity.x = sqlite3_column_int(stmt, 1);
-            entity.y = sqlite3_column_int(stmt, 2);
-            NSString * xy_value = [NSString stringWithFormat:@"%@ %@",[NSString stringWithFormat:@"%ld", (long)entity.x],[NSString stringWithFormat:@"%ld", (long)entity.y]];
+            entity.x = sqlite3_column_double(stmt, 1);
+            entity.y = sqlite3_column_double(stmt, 2);
+            NSString * xy_value = [NSString stringWithFormat:@"%@ %@",[NSString stringWithFormat:@"%.1f", (double)entity.x],[NSString stringWithFormat:@"%.1f", (double)entity.y]];
             [xy_array addObject:xy_value];
         }
     }
@@ -241,8 +242,8 @@ static sqlite3 * db ;
 
     if (result == SQLITE_OK) {
 
-        sqlite3_bind_int(stmt, 1, (int)x_value);
-        sqlite3_bind_int(stmt, 2, (int)y_value);
+        sqlite3_bind_double(stmt, 1, (double)x_value);
+        sqlite3_bind_double(stmt, 2, (double)y_value);
 
         // execute command
         sqlite3_step(stmt);

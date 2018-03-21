@@ -11,8 +11,8 @@
 @interface RssiEntity : NSObject
 
 @property(nonatomic,assign)NSInteger number;
-@property(nonatomic,assign)NSInteger x;
-@property(nonatomic,assign)NSInteger y;
+@property(nonatomic,assign)double x;
+@property(nonatomic,assign)double y;
 @property(nonatomic,assign)NSInteger beacon;
 @property(nonatomic,assign)NSInteger value;
 

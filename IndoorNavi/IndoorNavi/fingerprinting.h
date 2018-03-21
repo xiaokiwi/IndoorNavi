@@ -24,7 +24,7 @@
 -(void)insertDataWithKeyValues:(RssiEntity *)entity ;
 
 // Update
--(void)updateRssi:(NSInteger)rssi x_value:(NSInteger)x_value y_value:(NSInteger)y_value;
+-(void)updateRssi:(NSInteger)rssi x_value:(double)x_value y_value:(double)y_value;
 
 // Find all data
 -(NSArray<RssiEntity *> *)selectAllKeyValues ;

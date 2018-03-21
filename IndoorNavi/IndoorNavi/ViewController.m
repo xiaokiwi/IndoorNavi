@@ -146,7 +146,6 @@
     entity15.beacon = 3;
     entity15.value = -67;
     
-    
     RssiEntity * entity16 = [[RssiEntity alloc] init];
     entity16.number = 16 ;
     entity16.x = 3.8;
@@ -503,7 +502,6 @@
     entity66.beacon = 3;
     entity66.value = -72;
 
-    
     [dataBaseHandle insertDataWithKeyValues:entity1];
     [dataBaseHandle insertDataWithKeyValues:entity2];
     [dataBaseHandle insertDataWithKeyValues:entity3];
@@ -571,8 +569,9 @@
     [dataBaseHandle insertDataWithKeyValues:entity65];
     [dataBaseHandle insertDataWithKeyValues:entity66];
     
-    //NSMutableArray * result = [dataBaseHandle selectOneByrssi:1 value:-65];
+    //NSMutableArray * result = [dataBaseHandle selectOneByrssi:1 value:-69];
     //NSLog(@"%@", result);
+    //[dataBaseHandle selectAllKeyValues];
     
     // Update Data
     //[dataBaseHandle updateRssi:-80 x_value:100 y_value:321];
@@ -580,8 +579,6 @@
 
     // Delete one of data
     //[dataBaseHandle deleteOneRssi:100 y_value:321];
-
-    NSLog(@"%d", [[dataBaseHandle selectAllKeyValues] count]);
     
     // Delete the table
     //[dataBaseHandle dropTable];
@@ -920,8 +917,8 @@
             float weighted_x;
             float weighted_y;
             if (finger_x != 0 && finger_y != 0){
-                weighted_x = (80*finger_x/100) + (20*position.x/100);
-                weighted_y = (80*finger_y/100) + (20*position.y/100);
+                weighted_x = (70*finger_x/100) + (30*position.x/100);
+                weighted_y = (70*finger_y/100) + (30*position.y/100);
             }
             else {
                 weighted_x = position.x;
@@ -934,7 +931,7 @@
                 //for iphone_7plus
                 float x = weighted_x*76.8;  //384/5
                 float y = weighted_y*38.068 + 39; //670/17.6
-                NSLog(@"weighted pixel: %.1f and %.1f", x, y);
+                //NSLog(@"weighted pixel: %.1f and %.1f", x, y);
                 //for iphone 7 plus
                 //float x = weighted_x * 45.1765;
                 //float y= weighted_y * 42.9487 + 39;
