@@ -658,10 +658,10 @@
     [self babyDelegate];
     
     //add a new point
-    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(182, 300, 10, 10)];
-    view1.backgroundColor = [UIColor greenColor];
-    //UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me.png"]];
-    //[view1 addSubview:imageView];
+    //UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(182, 300, 10, 10)];
+    //view1.backgroundColor = [UIColor greenColor];
+    UIImageView * view1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me.png"]];
+    //[self.view addSubview:view1];
     view1.tag = 1;
     [self.view addSubview:view1];
     //Remove all button
@@ -682,10 +682,7 @@
     [self babyDelegate];
     
     //add a new point
-    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(182, 300, 10, 10)];
-    view1.backgroundColor = [UIColor orangeColor];
-    //UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me.png"]];
-    //[view1 addSubview:imageView];
+    UIImageView * view1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me.png"]];
     view1.tag = 1;
     [self.view addSubview:view1];
     //Remove all button
@@ -706,10 +703,7 @@
     [self babyDelegate];
     
     //add a new point
-    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(182, 300, 10, 10)];
-    view1.backgroundColor = [UIColor redColor];
-    //UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me.png"]];
-    //[view1 addSubview:imageView];
+    UIImageView * view1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me.png"]];
     view1.tag = 1;
     [self.view addSubview:view1];
     //Remove all button
@@ -942,7 +936,7 @@
                     double txPower = -55;
 
                     distance_three = pow(10,((txPower - avag_rssi_three)/22));
-                    NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_three, distance_three);
+                    //NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_three, distance_three);
 
                     [rssi_array_three removeAllObjects];
                     flag = 1;
@@ -1016,7 +1010,7 @@
                 finger_y = [[Seperated_XY objectAtIndex:1] floatValue];
                 
                 //NSMutableArray * result = [dataBaseHandle selectOneByrssi:1 value:-65];
-                NSLog(@"xyValue: %.1f and %.1f", finger_x, finger_y);
+                NSLog(@"Fingerprint XY: %.1f and %.1f", finger_x, finger_y);
             }
 
             //Weighted fused results from both Algorithm

@@ -80,9 +80,9 @@
                                       forBeaconDiscances:distanceArray];
     
     
-   NSLog(@"Corrected output is: ");
-   NSLog(@"PositionX = %f", correctedCoordinate.x);
-   NSLog(@"PositionY = %f", correctedCoordinate.y);
+//   NSLog(@"Corrected output is: ");
+//   NSLog(@"PositionX = %f", correctedCoordinate.x);
+//   NSLog(@"PositionY = %f", correctedCoordinate.y);
     return correctedCoordinate;
 }
 
