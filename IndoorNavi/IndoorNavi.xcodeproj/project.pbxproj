@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1024D952106C88B6672BB355 /* libPods-IndoorNavi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78023BBAF442277B7DBD7B95 /* libPods-IndoorNavi.a */; };
+		572224062062FE8100A11AA3 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 572224052062FE8100A11AA3 /* button.png */; };
 		5746B2DA20564F7900C31C20 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5746B2D920564F7900C31C20 /* background.jpg */; };
 		5746B2DC2056533700C31C20 /* me.png in Resources */ = {isa = PBXBuildFile; fileRef = 5746B2DB2056533600C31C20 /* me.png */; };
 		5746B2E1205DB02300C31C20 /* fingerprinting.m in Sources */ = {isa = PBXBuildFile; fileRef = 5746B2E0205DB02300C31C20 /* fingerprinting.m */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		32D35CA8172142FA113DBC07 /* Pods-IndoorNavi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IndoorNavi.release.xcconfig"; path = "Pods/Target Support Files/Pods-IndoorNavi/Pods-IndoorNavi.release.xcconfig"; sourceTree = "<group>"; };
+		572224052062FE8100A11AA3 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		5746B2D920564F7900C31C20 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		5746B2DB2056533600C31C20 /* me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = me.png; sourceTree = "<group>"; };
 		5746B2DF205DB00800C31C20 /* fingerprinting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fingerprinting.h; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		57A15CDF2055DB1E000E3E2E /* IndoorNavi */ = {
 			isa = PBXGroup;
 			children = (
+				572224052062FE8100A11AA3 /* button.png */,
 				5746B2DB2056533600C31C20 /* me.png */,
 				5746B2D920564F7900C31C20 /* background.jpg */,
 				57A15D1A20561E92000E3E2E /* TriangulationAlgorithm.h */,
@@ -302,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5746B2DC2056533700C31C20 /* me.png in Resources */,
+				572224062062FE8100A11AA3 /* button.png in Resources */,
 				57A15CF02055DB1E000E3E2E /* LaunchScreen.storyboard in Resources */,
 				5746B2DA20564F7900C31C20 /* background.jpg in Resources */,
 				57A15CED2055DB1E000E3E2E /* Assets.xcassets in Resources */,
