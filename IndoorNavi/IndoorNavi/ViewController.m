@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <BabyBluetooth.h>
+#import <CoreLocation/CoreLocation.h>
 #import "TriangulationAlgorithm.h"
 #include <math.h>
 #import "fingerprinting.h"
@@ -39,7 +40,7 @@
     [super viewDidLoad];
 
     //Database Setup
-    DataBaseHandle * dataBaseHandle = [DataBaseHandle dataBaseHandleWithDataBaseName:@"Rssi2DB"];
+//    DataBaseHandle * dataBaseHandle = [DataBaseHandle dataBaseHandleWithDataBaseName:@"Rssi2DB"];
 
     // Insert Data (examples)
     RssiEntity * entity1 = [[RssiEntity alloc] init];
@@ -503,72 +504,72 @@
     entity66.beacon = 3;
     entity66.value = -72;
 
-    [dataBaseHandle insertDataWithKeyValues:entity1];
-    [dataBaseHandle insertDataWithKeyValues:entity2];
-    [dataBaseHandle insertDataWithKeyValues:entity3];
-    [dataBaseHandle insertDataWithKeyValues:entity4];
-    [dataBaseHandle insertDataWithKeyValues:entity5];
-    [dataBaseHandle insertDataWithKeyValues:entity6];
-    [dataBaseHandle insertDataWithKeyValues:entity7];
-    [dataBaseHandle insertDataWithKeyValues:entity8];
-    [dataBaseHandle insertDataWithKeyValues:entity9];
-    [dataBaseHandle insertDataWithKeyValues:entity10];
-    [dataBaseHandle insertDataWithKeyValues:entity11];
-    [dataBaseHandle insertDataWithKeyValues:entity12];
-    [dataBaseHandle insertDataWithKeyValues:entity13];
-    [dataBaseHandle insertDataWithKeyValues:entity14];
-    [dataBaseHandle insertDataWithKeyValues:entity15];
-    [dataBaseHandle insertDataWithKeyValues:entity16];
-    [dataBaseHandle insertDataWithKeyValues:entity17];
-    [dataBaseHandle insertDataWithKeyValues:entity18];
-    [dataBaseHandle insertDataWithKeyValues:entity19];
-    [dataBaseHandle insertDataWithKeyValues:entity20];
-    [dataBaseHandle insertDataWithKeyValues:entity21];
-    [dataBaseHandle insertDataWithKeyValues:entity22];
-    [dataBaseHandle insertDataWithKeyValues:entity23];
-    [dataBaseHandle insertDataWithKeyValues:entity24];
-    [dataBaseHandle insertDataWithKeyValues:entity25];
-    [dataBaseHandle insertDataWithKeyValues:entity26];
-    [dataBaseHandle insertDataWithKeyValues:entity27];
-    [dataBaseHandle insertDataWithKeyValues:entity28];
-    [dataBaseHandle insertDataWithKeyValues:entity29];
-    [dataBaseHandle insertDataWithKeyValues:entity30];
-    [dataBaseHandle insertDataWithKeyValues:entity31];
-    [dataBaseHandle insertDataWithKeyValues:entity32];
-    [dataBaseHandle insertDataWithKeyValues:entity33];
-    [dataBaseHandle insertDataWithKeyValues:entity34];
-    [dataBaseHandle insertDataWithKeyValues:entity35];
-    [dataBaseHandle insertDataWithKeyValues:entity36];
-    [dataBaseHandle insertDataWithKeyValues:entity37];
-    [dataBaseHandle insertDataWithKeyValues:entity38];
-    [dataBaseHandle insertDataWithKeyValues:entity39];
-    [dataBaseHandle insertDataWithKeyValues:entity40];
-    [dataBaseHandle insertDataWithKeyValues:entity41];
-    [dataBaseHandle insertDataWithKeyValues:entity42];
-    [dataBaseHandle insertDataWithKeyValues:entity43];
-    [dataBaseHandle insertDataWithKeyValues:entity44];
-    [dataBaseHandle insertDataWithKeyValues:entity45];
-    [dataBaseHandle insertDataWithKeyValues:entity46];
-    [dataBaseHandle insertDataWithKeyValues:entity47];
-    [dataBaseHandle insertDataWithKeyValues:entity48];
-    [dataBaseHandle insertDataWithKeyValues:entity49];
-    [dataBaseHandle insertDataWithKeyValues:entity50];
-    [dataBaseHandle insertDataWithKeyValues:entity51];
-    [dataBaseHandle insertDataWithKeyValues:entity52];
-    [dataBaseHandle insertDataWithKeyValues:entity53];
-    [dataBaseHandle insertDataWithKeyValues:entity54];
-    [dataBaseHandle insertDataWithKeyValues:entity55];
-    [dataBaseHandle insertDataWithKeyValues:entity56];
-    [dataBaseHandle insertDataWithKeyValues:entity57];
-    [dataBaseHandle insertDataWithKeyValues:entity58];
-    [dataBaseHandle insertDataWithKeyValues:entity59];
-    [dataBaseHandle insertDataWithKeyValues:entity60];
-    [dataBaseHandle insertDataWithKeyValues:entity61];
-    [dataBaseHandle insertDataWithKeyValues:entity62];
-    [dataBaseHandle insertDataWithKeyValues:entity63];
-    [dataBaseHandle insertDataWithKeyValues:entity64];
-    [dataBaseHandle insertDataWithKeyValues:entity65];
-    [dataBaseHandle insertDataWithKeyValues:entity66];
+//    [dataBaseHandle insertDataWithKeyValues:entity1];
+//    [dataBaseHandle insertDataWithKeyValues:entity2];
+//    [dataBaseHandle insertDataWithKeyValues:entity3];
+//    [dataBaseHandle insertDataWithKeyValues:entity4];
+//    [dataBaseHandle insertDataWithKeyValues:entity5];
+//    [dataBaseHandle insertDataWithKeyValues:entity6];
+//    [dataBaseHandle insertDataWithKeyValues:entity7];
+//    [dataBaseHandle insertDataWithKeyValues:entity8];
+//    [dataBaseHandle insertDataWithKeyValues:entity9];
+//    [dataBaseHandle insertDataWithKeyValues:entity10];
+//    [dataBaseHandle insertDataWithKeyValues:entity11];
+//    [dataBaseHandle insertDataWithKeyValues:entity12];
+//    [dataBaseHandle insertDataWithKeyValues:entity13];
+//    [dataBaseHandle insertDataWithKeyValues:entity14];
+//    [dataBaseHandle insertDataWithKeyValues:entity15];
+//    [dataBaseHandle insertDataWithKeyValues:entity16];
+//    [dataBaseHandle insertDataWithKeyValues:entity17];
+//    [dataBaseHandle insertDataWithKeyValues:entity18];
+//    [dataBaseHandle insertDataWithKeyValues:entity19];
+//    [dataBaseHandle insertDataWithKeyValues:entity20];
+//    [dataBaseHandle insertDataWithKeyValues:entity21];
+//    [dataBaseHandle insertDataWithKeyValues:entity22];
+//    [dataBaseHandle insertDataWithKeyValues:entity23];
+//    [dataBaseHandle insertDataWithKeyValues:entity24];
+//    [dataBaseHandle insertDataWithKeyValues:entity25];
+//    [dataBaseHandle insertDataWithKeyValues:entity26];
+//    [dataBaseHandle insertDataWithKeyValues:entity27];
+//    [dataBaseHandle insertDataWithKeyValues:entity28];
+//    [dataBaseHandle insertDataWithKeyValues:entity29];
+//    [dataBaseHandle insertDataWithKeyValues:entity30];
+//    [dataBaseHandle insertDataWithKeyValues:entity31];
+//    [dataBaseHandle insertDataWithKeyValues:entity32];
+//    [dataBaseHandle insertDataWithKeyValues:entity33];
+//    [dataBaseHandle insertDataWithKeyValues:entity34];
+//    [dataBaseHandle insertDataWithKeyValues:entity35];
+//    [dataBaseHandle insertDataWithKeyValues:entity36];
+//    [dataBaseHandle insertDataWithKeyValues:entity37];
+//    [dataBaseHandle insertDataWithKeyValues:entity38];
+//    [dataBaseHandle insertDataWithKeyValues:entity39];
+//    [dataBaseHandle insertDataWithKeyValues:entity40];
+//    [dataBaseHandle insertDataWithKeyValues:entity41];
+//    [dataBaseHandle insertDataWithKeyValues:entity42];
+//    [dataBaseHandle insertDataWithKeyValues:entity43];
+//    [dataBaseHandle insertDataWithKeyValues:entity44];
+//    [dataBaseHandle insertDataWithKeyValues:entity45];
+//    [dataBaseHandle insertDataWithKeyValues:entity46];
+//    [dataBaseHandle insertDataWithKeyValues:entity47];
+//    [dataBaseHandle insertDataWithKeyValues:entity48];
+//    [dataBaseHandle insertDataWithKeyValues:entity49];
+//    [dataBaseHandle insertDataWithKeyValues:entity50];
+//    [dataBaseHandle insertDataWithKeyValues:entity51];
+//    [dataBaseHandle insertDataWithKeyValues:entity52];
+//    [dataBaseHandle insertDataWithKeyValues:entity53];
+//    [dataBaseHandle insertDataWithKeyValues:entity54];
+//    [dataBaseHandle insertDataWithKeyValues:entity55];
+//    [dataBaseHandle insertDataWithKeyValues:entity56];
+//    [dataBaseHandle insertDataWithKeyValues:entity57];
+//    [dataBaseHandle insertDataWithKeyValues:entity58];
+//    [dataBaseHandle insertDataWithKeyValues:entity59];
+//    [dataBaseHandle insertDataWithKeyValues:entity60];
+//    [dataBaseHandle insertDataWithKeyValues:entity61];
+//    [dataBaseHandle insertDataWithKeyValues:entity62];
+//    [dataBaseHandle insertDataWithKeyValues:entity63];
+//    [dataBaseHandle insertDataWithKeyValues:entity64];
+//    [dataBaseHandle insertDataWithKeyValues:entity65];
+//    [dataBaseHandle insertDataWithKeyValues:entity66];
     
     //NSMutableArray * result = [dataBaseHandle selectOneByrssi:1 value:-69];
     //NSLog(@"%@", result);
@@ -649,6 +650,14 @@
 }
 
 - (void)click1 {
+    
+    locationManager=[[CLLocationManager alloc] init];
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.delegate = self;
+    //Start the compass updates.
+    [locationManager startUpdatingHeading];
+    
+    
     UIImage *backGroundImage = [UIImage imageNamed:@"background.jpg"];
     self.view.contentMode = UIViewContentModeScaleAspectFill;
     self.view.layer.contents = (__bridge id _Nullable)(backGroundImage.CGImage);
@@ -714,6 +723,39 @@
     }
 }
 
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading
+{
+    float mHeading = newHeading.magneticHeading;
+    if ((mHeading >= 339) || (mHeading <= 22)) {
+        //[direction setText:@"N"];
+        
+    }else if ((mHeading > 23) && (mHeading <= 68)) {
+        //[direction setText:@"NE"];
+        NSLog(@"Direction:   NE");
+    }else if ((mHeading > 69) && (mHeading <= 113)) {
+        //[direction setText:@"E"];
+        NSLog(@"Direction:   E");
+    }else if ((mHeading > 114) && (mHeading <= 158)) {
+        //[direction setText:@"SE"];
+        NSLog(@"Direction:   SE");
+    }else if ((mHeading > 159) && (mHeading <= 203)) {
+        //[direction setText:@"S"];
+        NSLog(@"Direction:   S");
+    }else if ((mHeading > 204) && (mHeading <= 248)) {
+        //[direction setText:@"SW"];
+        NSLog(@"Direction:   SW");
+    }else if ((mHeading > 249) && (mHeading <= 293)) {
+        // [direction setText:@"W"];
+        NSLog(@"Direction:   W");
+    }else if ((mHeading > 294) && (mHeading <= 338)) {
+        // [direction setText:@"NW"];
+        NSLog(@"Direction:   NW");
+    }
+}
+
+
+
 #pragma mark -Bluetooth config and control
 
 //Bluetooth Delegate setting
@@ -754,13 +796,13 @@
     [baby setBlockOnDiscoverToPeripherals:^(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI) {
         //Searching for different BrtBeacon
 
-        //NSLog(@"%@",peripheral.name);
-        if ([peripheral.name isEqual:@"BrtBeacon01"]) {
-            if (ignore_count > 50 && [RSSI intValue] != 127) {
-                
+        //NSLog(@"%@ and RSSI: %d", peripheral.identifier, [RSSI intValue]);
+        
+        if ([[peripheral.identifier UUIDString] isEqualToString:@"A8EBB481-DFD3-C514-8433-99709FBF29C9"]) {
+            //NSLog(@"RSSI:%@", RSSI);
+            if (ignore_count > 2 && [RSSI intValue] != 127) {
                 if ( [rssi_array_one count] < PowerLevel ) {
                     [rssi_array_one addObject:RSSI];
-                    //NSLog(@"RSSI:%@", RSSI);
                 }
                 else {
                     NSUInteger count;
@@ -771,7 +813,7 @@
                     }
                     float u = container/PowerLevel;
                     float container2 = 0;
-                    
+
                     for (i = 0, count = [rssi_array_one count]; i < count; i = i+1) {
                         double temp = 0.0;
                         temp = [[rssi_array_one objectAtIndex:i] doubleValue] - u;
@@ -780,7 +822,7 @@
                     }
                     float v = pow(container2/(PowerLevel-1),0.5);
                     //NSLog(@"u:%.lf  v:%.1f", u, v);
-                    
+
                     float rssi_sum = 0;
                     float rssi_count = 0;
                     for (i = 0, count = [rssi_array_one count]; i < count; i = i+1) {
@@ -792,7 +834,7 @@
                         }
                     }
                     avag_rssi_one = rssi_sum / rssi_count;
-                    
+
                     //Moving average Algorithm
                     if (prev_rssi1 == 0 || prevprev_rssi1 == 0) {
                         prev_rssi1 = avag_rssi_one;
@@ -801,10 +843,10 @@
                     avag_rssi_one = (avag_rssi_one + prev_rssi1 + prevprev_rssi1)/3;
                     prevprev_rssi1 = prev_rssi1;
                     prev_rssi1 = avag_rssi_one;
-                    
+
                     //Translate RSSI value into distance
-                    double txPower = -50;
-                    
+                    double txPower = -56;
+
 //                    if (avag_rssi_one == 0) {
 //                        distance_one = -1.0;
 //                    }
@@ -816,7 +858,7 @@
 //                        distance_one = (0.89976)*pow(ratio,7.7095) + 0.111;
 //                    }
                     distance_one = pow(10,((txPower - avag_rssi_one)/22));
-                    //NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_one, distance_one);
+                    NSLog(@"Purple has RSSI: %d and %.1f meters", avag_rssi_one, distance_one);
                     [rssi_array_one removeAllObjects];
                     flag = 1;
                 }
@@ -825,12 +867,11 @@
                 ignore_count = ignore_count + 1;
             }
         }
-        else if ([peripheral.name isEqual:@"BrtBeacon02"]) {
-             if (ignore_count > 50 && [RSSI intValue] != 127) {
-
+        else if ([[peripheral.identifier UUIDString] isEqualToString:@"66759CA1-7928-1CF1-FB19-33DA8F7E62F2"]) {
+             //NSLog(@"RSSI:%@", RSSI);
+             if (ignore_count > 2 && [RSSI intValue] != 127) {
                  if ( [rssi_array_two count] < PowerLevel ) {
                      [rssi_array_two addObject:RSSI];
-                     //NSLog(@"RSSI:%@", RSSI);
                  }
                  else {
                      NSUInteger count;
@@ -841,7 +882,7 @@
                      }
                      float u = container/PowerLevel;
                      float container2 = 0;
-                     
+
                      for (i = 0, count = [rssi_array_two count]; i < count; i = i+1) {
                          double temp = 0.0;
                          temp = [[rssi_array_two objectAtIndex:i] doubleValue] - u;
@@ -850,7 +891,7 @@
                      }
                      float v = pow((container2/(PowerLevel-1)),0.5);
                      //NSLog(@"u:%.lf  v:%.1f", u, v);
-                     
+
                      float rssi_sum = 0;
                      float rssi_count = 0;
                      for (i = 0, count = [rssi_array_two count]; i < count; i = i+1) {
@@ -871,12 +912,12 @@
                      avag_rssi_two = (avag_rssi_two + prev_rssi2 + prevprev_rssi2)/3;
                      prevprev_rssi2 = prev_rssi2;
                      prev_rssi2 = avag_rssi_two;
-                     
+
                      //Translate RSSI value into distance
-                     double txPower = -54;
+                     double txPower = -56;
 
                      distance_two = pow(10,((txPower - avag_rssi_two)/22));
-                     //NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_two, distance_two);
+                     NSLog(@"Mint has RSSI: %d and %.1f meters", avag_rssi_two, distance_two);
                      [rssi_array_two removeAllObjects];
                      flag = 1;
                  }
@@ -885,12 +926,11 @@
                  ignore_count = ignore_count + 1;
              }
         }
-        else if ([peripheral.name isEqual:@"BrtBeacon03"]) {
-
-            if (ignore_count > 50 && [RSSI intValue] != 127) {
+        else if ([[peripheral.identifier UUIDString] isEqualToString:@"307813A9-C731-67B8-4889-DB1833C17491"]) {
+            //NSLog(@"RSSI:%@", RSSI);
+            if (ignore_count > 2 && [RSSI intValue] != 127) {
                 if ( [rssi_array_three count] < PowerLevel ) {
                     [rssi_array_three addObject:RSSI];
-                   // NSLog(@"RSSI:%@", RSSI);
                 }
                 else {
                     NSUInteger count;
@@ -901,7 +941,7 @@
                     }
                     float u = container/PowerLevel;
                     float container2 = 0;
-                    
+
                     for (i = 0, count = [rssi_array_three count]; i < count; i = i+1) {
                         double temp = 0.0;
                         temp = [[rssi_array_three objectAtIndex:i] doubleValue] - u;
@@ -910,7 +950,7 @@
                     }
                     float v = pow((container2/(PowerLevel-1)),0.5);
                     //NSLog(@"u:%.lf  v:%.1f", u, v);
-                    
+
                     float rssi_sum = 0;
                     float rssi_count = 0;
                     for (i = 0, count = [rssi_array_three count]; i < count; i = i+1) {
@@ -931,13 +971,12 @@
                     avag_rssi_three = (avag_rssi_three + prev_rssi3 + prevprev_rssi3)/3;
                     prevprev_rssi3 = prev_rssi3;
                     prev_rssi3 = avag_rssi_three;
-                    
+
                     //Translate RSSI value into distance
-                    double txPower = -55;
+                    double txPower = -56;
 
                     distance_three = pow(10,((txPower - avag_rssi_three)/22));
-                    //NSLog(@"%@ has RSSI: %d and %.1f meters", peripheral.name, avag_rssi_three, distance_three);
-
+                    NSLog(@"Blue has RSSI: %d and %.1f meters", avag_rssi_three, distance_three);
                     [rssi_array_three removeAllObjects];
                     flag = 1;
                 }
@@ -952,20 +991,20 @@
             //Trilangulation Algorithm
             CGPoint position = [triangulationCalculator calculatePosition:1 beaconId2:2 beaconId3:3 beaconDis1:distance_one beaconDis2:distance_two beaconDis3:distance_three];
             //NSLog(@" Beacon1: %d, Beacon2: %d, Beacon3: %d With Position = (%f, %f) ", avag_rssi_one, avag_rssi_two, avag_rssi_three, position.x, position.y);
-            NSLog(@" Beacon1: %d and %.2f, Beacon2: %d and %.2f, Beacon3: %d and %.2f", avag_rssi_one, distance_one, avag_rssi_two, distance_two, avag_rssi_three, distance_three);
-            
+            //NSLog(@" Beacon1: %d and %.2f, Beacon2: %d and %.2f, Beacon3: %d and %.2f", avag_rssi_one, distance_one, avag_rssi_two, distance_two, avag_rssi_three, distance_three);
+
             float finger_x = 0;
             float finger_y = 0;
-            
+
             //if the lowest Power Level is chose, Fingerprinting will not be implemented
             if (PowerLevel != 20) {
                 //Fingerprinting Algorithm
                 NSMutableArray * xy_one = [dataBaseHandle selectOneByrssi:1 value:avag_rssi_one];
                 NSMutableArray * xy_two = [dataBaseHandle selectOneByrssi:2 value:avag_rssi_two];
                 NSMutableArray * xy_three = [dataBaseHandle selectOneByrssi:3 value:avag_rssi_three];
-                
+
                 NSMutableDictionary * xy_dict = [NSMutableDictionary dictionary];
-                
+
                 for (NSString *string in xy_one) {
                     //if xy is already in the dictionary
                     if ([xy_dict objectForKey:string]) {
@@ -993,9 +1032,9 @@
                     }
                 }
                 //NSLog(@"%@", xy_dict);
-                
+
                 NSArray * Sorted_XY = [xy_dict keysSortedByValueUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-                    
+
                     if ([obj1 integerValue] > [obj2 integerValue]) {
                         return (NSComparisonResult)NSOrderedAscending;
                     }
@@ -1004,13 +1043,13 @@
                     }
                     return (NSComparisonResult)NSOrderedSame;
                 }];
-                
+
                 NSArray * Seperated_XY = [[Sorted_XY firstObject] componentsSeparatedByString:@" "];
                 finger_x = [[Seperated_XY objectAtIndex:0] floatValue];
                 finger_y = [[Seperated_XY objectAtIndex:1] floatValue];
-                
+
                 //NSMutableArray * result = [dataBaseHandle selectOneByrssi:1 value:-65];
-                NSLog(@"Fingerprint XY: %.1f and %.1f", finger_x, finger_y);
+                //NSLog(@"Fingerprint XY: %.1f and %.1f", finger_x, finger_y);
             }
 
             //Weighted fused results from both Algorithm
@@ -1027,7 +1066,7 @@
 
             if (position.x != 0) {
                 //convert to pixels
-                NSLog(@"WEIGHTED xy: %.1f and %.1f", weighted_x, weighted_y);
+                //NSLog(@"WEIGHTED xy: %.1f and %.1f", weighted_x, weighted_y);
                 //for iphone_7plus
                 float x = weighted_x*76.8;  //384/5
                 float y = weighted_y*38.068 + 39; //670/17.6
@@ -1054,28 +1093,26 @@
     //Set searching filter
     [baby setFilterOnDiscoverPeripherals:^BOOL(NSString *peripheralName, NSDictionary *advertisementData, NSNumber *RSSI) {
         //Only search device with this prefix
-        if ([peripheralName hasPrefix:@"BrtBeacon"] ) {
+        if ([peripheralName hasPrefix:@"EST"] ) {
             return YES;
         }
         return NO;
     }];
     
-    /*
+    
     [baby setBlockOnCancelAllPeripheralsConnectionBlock:^(CBCentralManager *centralManager) {
         NSLog(@"setBlockOnCancelAllPeripheralsConnectionBlock");
     }];
-    
+
     [baby setBlockOnCancelScanBlock:^(CBCentralManager *centralManager) {
         NSLog(@"setBlockOnCancelScanBlock");
     }];
-    */
-    
-    /*
+
     //Ignore same Peripherals found
     NSDictionary *scanForPeripheralsWithOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@YES};
     //connect device->
     [baby setBabyOptionsWithScanForPeripheralsWithOptions:scanForPeripheralsWithOptions connectPeripheralWithOptions:nil scanForPeripheralsWithServices:nil discoverWithServices:nil discoverWithCharacteristics:nil];
-    */
+    
 }
 
 - (void)didReceiveMemoryWarning {
